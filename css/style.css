@@ -9682,3 +9682,136 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+ .whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+  }
+
+  .whatsapp-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .whatsapp-button {
+    background-color: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjb298EwFx4P6QnU2jfOG5HMXv2xkw2Y8xoUBCmClQ4w&s');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+  }
+
+  .whatsapp-button:hover {
+    background-color: #128C7E;
+  }
+  
+  .whatsapp-content {
+    display: none;
+    position: absolute;
+    bottom: 0%;
+    left: -210%;
+    width: 300px;
+    height: auto;
+    transform: translateX(-50%);
+    /*background-color: transparent;*/
+    border-radius: 5px;
+    min-width: 200px;
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    z-index: 1;
+  }
+
+  .whatsapp-dropdown.active .whatsapp-content {
+    display: block;
+  }
+  
+  
+
+  
+  /* Close button styles */
+  .whatsapp-close {
+    position: absolute;
+    top: 2px;
+    right: -60px;
+    cursor: pointer;
+    font-size: 39px;
+    color:white;
+    width:100px;
+    height:auto;
+  }
+   .chat-container {
+            max-width: 400px;
+            /*margin: 0 auto;*/
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chat-header {
+            background-color: #075E54;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .chat-body {
+            padding: 10px;
+            background-color: #f1f0f0;
+            min-height: 300px;
+        }
+
+        .message {
+            background-color: #dcf8c6;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        .message.received {
+            background-color: #fff;
+            float: left;
+        }
+
+        .message.sent {
+            background-color: #dcf8c6;
+            float: right;
+        }
+
+        .input-container {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .input-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .input-container button {
+            background-color: #075E54;
+            color: #fff;
+            border: none;
+            /*padding: 10px 20px;*/
+            border-radius: 50%;
+            margin-top: 6px;
+            font-weight: bolder;
+            width: 31px;
+            height:auto;
+            cursor: pointer;
+        }
