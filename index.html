@@ -774,6 +774,61 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+	  <script>
+  // JavaScript to toggle the "active" class when clicking the WhatsApp button
+  const whatsappDropdown = document.getElementById("whatsappDropdown");
+  const whatsappButton = document.getElementById("whatsappButton");
+  const closeButton = document.getElementById("closeButton");
+
+  whatsappButton.addEventListener("click", function () {
+    whatsappDropdown.classList.toggle("active");
+    setTimeout(addReceivedMessage, 1000); // Add received message after 3 seconds
+  });
+
+  // JavaScript to close the dropdown when clicking the close button
+  closeButton.addEventListener("click", function (e) {
+    e.stopPropagation(); // Prevent the click from propagating to the whatsappButton
+    whatsappDropdown.classList.remove("active");
+  });
+
+ // Function to add the received message dynamically with the appropriate greeting and current time/date
+function addReceivedMessage() {
+  const chatBody = document.getElementById("chatBody");
+  const receivedMessage = document.createElement("div");
+  receivedMessage.classList.add("message", "received");
+
+  const currentHour = new Date().getHours();
+  const currentMinute = new Date().getMinutes();
+  const currentDate = new Date().toLocaleDateString();
+
+  let greeting = "";
+
+  if (currentHour >= 5 && currentHour < 12) {
+    greeting = "Good Morning!";
+  } else if (currentHour >= 12 && currentHour < 18) {
+    greeting = "Good Afternoon!";
+  } else {
+    greeting = "Good Evening!";
+  }
+
+  receivedMessage.innerHTML = `${greeting} How May I Help You? <span style="font-size: 11px; float: right; text-align: right; margin-top:6px;">${currentHour}:${currentMinute} ${currentDate}</span>`;
+
+
+  chatBody.appendChild(receivedMessage);
+}
+
+</script>
+
+<!-----Send WhatsApp message directly to take input from the user--->
+<script>
+    function sendWhatsAppMessage() {
+        const recipientNumber = '918802042444'; // Replace with the recipient's WhatsApp number
+        const messageText = document.getElementById("messageText").value;
+        const encodedMessage = encodeURIComponent(messageText);
+        const whatsappLink = `https://wa.me/${recipientNumber}?text=${encodedMessage}`;
+        window.open(whatsappLink, "_blank");
+    }
+</script>
     
   </body>
 </html>
