@@ -9747,7 +9747,7 @@ textarea.form-control {
   /* Close button styles */
   .whatsapp-close {
     position: absolute;
-    top: 2px;
+    top: -7px;
     right: -60px;
     cursor: pointer;
     font-size: 39px;
@@ -9812,7 +9812,7 @@ textarea.form-control {
             background-color: #075E54;
             color: #fff;
             border: none;
-            /*padding: 10px 20px;*/
+            margin: 10px -16px;
             border-radius: 50%;
             margin-top: 6px;
             font-weight: bolder;
