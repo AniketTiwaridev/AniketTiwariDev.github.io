@@ -122,5 +122,122 @@
             chatMessages.appendChild(messageDiv);
         }
     </script>
+    <script>
+        // Add this code inside the <script> tag
+let localStream;
+let peerConnections = {};
+let socket; // Assume you have a socket connection to your signaling server
+
+function startVideoChat() {
+    // ... (existing code)
+
+    // Create a peer connection
+    const peerConnection = new RTCPeerConnection();
+
+    // Add local stream to the peer connection
+    localStream.getTracks().forEach(track => {
+        peerConnection.addTrack(track, localStream);
+    });
+
+    // Set up event listeners for WebRTC events
+    peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+            // Send ICE candidate to other peers
+            sendMessageToOthers({ type: 'ice-candidate', candidate: event.candidate });
+        }
+    };
+
+    peerConnection.onnegotiationneeded = async () => {
+        // Create and send an offer to the other peer
+        const offer = await peerConnection.createOffer();
+        await peerConnection.setLocalDescription(offer);
+        sendMessageToOthers({ type: 'offer', offer: peerConnection.localDescription });
+    };
+
+    peerConnection.ontrack = (event) => {
+        // Display remote video
+        const remoteVideo = document.createElement('video');
+        remoteVideo.srcObject = event.streams[0];
+        videosDiv.appendChild(remoteVideo);
+        remoteVideo.play();
+    };
+
+    // Assume you have a socket connection to your signaling server
+    socket.on('message', (data) => {
+        handleMessage(data, peerConnection);
+    });
+
+    // Save the peer connection in the global object for later reference
+    peerConnections[/* some unique identifier */] = peerConnection;
+}
+
+function joinVideoChat() {
+    // ... (existing code)
+
+    // Create a peer connection
+    const peerConnection = new RTCPeerConnection();
+
+    // Add local stream to the peer connection
+    localStream.getTracks().forEach(track => {
+        peerConnection.addTrack(track, localStream);
+    });
+
+    // Set up event listeners for WebRTC events
+    peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+            // Send ICE candidate to other peers
+            sendMessageToOthers({ type: 'ice-candidate', candidate: event.candidate });
+        }
+    };
+
+    peerConnection.onnegotiationneeded = async () => {
+        // Create and send an answer to the other peer
+        const answer = await peerConnection.createAnswer();
+        await peerConnection.setLocalDescription(answer);
+        sendMessageToOthers({ type: 'answer', answer: peerConnection.localDescription });
+    };
+
+    peerConnection.ontrack = (event) => {
+        // Display remote video
+        const remoteVideo = document.createElement('video');
+        remoteVideo.srcObject = event.streams[0];
+        videosDiv.appendChild(remoteVideo);
+        remoteVideo.play();
+    };
+
+    // Assume you have a socket connection to your signaling server
+    socket.on('message', (data) => {
+        handleMessage(data, peerConnection);
+    });
+
+    // Save the peer connection in the global object for later reference
+    peerConnections[/* some unique identifier */] = peerConnection;
+}
+
+function handleMessage(data, peerConnection) {
+    switch (data.type) {
+        case 'offer':
+            // Set remote description and create an answer
+            peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer))
+                .then(() => peerConnection.createAnswer())
+                .then(answer => peerConnection.setLocalDescription(answer))
+                .then(() => {
+                    // Send the answer to the other peer
+                    sendMessageToOthers({ type: 'answer', answer: peerConnection.localDescription });
+                });
+            break;
+        case 'answer':
+            // Set remote description
+            peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
+            break;
+        case 'ice-candidate':
+            // Add ICE candidate
+            peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
+            break;
+        // Handle other message types if needed
+    }
+}
+
+    </script>
 </body>
 </html>
