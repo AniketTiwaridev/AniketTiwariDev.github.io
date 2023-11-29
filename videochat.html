@@ -1,243 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Chat</title>
-    <style>
-        /* Add your styles here */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Chat</title>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+  <style>
+    /* Your styles go here */
+  </style>
 </head>
 <body>
-    <div id="call-options">
-        <button onclick="startNewCall()">Start New Call</button>
-        <button onclick="joinCall()">Join Call</button>
-    </div>
+  <div id="call-options">
+    <button onclick="startNewCall()">Start New Call</button>
+    <button onclick="joinCall()">Join Call</button>
+  </div>
 
-    <div id="room-setup" style="display: none;">
-        <label for="room-password">Enter a room password:</label>
-        <input type="password" id="room-password">
-        <button onclick="startVideoChat()">Start Video Chat</button>
-    </div>
+  <div id="room-setup" style="display: none;">
+    <label for="room-password">Enter a room password:</label>
+    <input type="password" id="room-password">
+    <button onclick="startVideoChat()">Start Video Chat</button>
+  </div>
 
-    <div id="join-room" style="display: none;">
-        <label for="join-room-password">Enter the room password:</label>
-        <input type="password" id="join-room-password">
-        <button onclick="joinVideoChat()">Join Video Chat</button>
-    </div>
+  <div id="join-room" style="display: none;">
+    <label for="join-room-password">Enter the room password:</label>
+    <input type="password" id="join-room-password">
+    <button onclick="joinVideoChat()">Join Video Chat</button>
+  </div>
 
-    <div id="video-chat" style="display: none;">
-        <div id="videos"></div>
-        <input type="text" id="chat-input" placeholder="Type your message">
-        <button onclick="sendMessage()">Send</button>
-        <div id="chat-messages"></div>
-    </div>
+  <div id="video-chat" style="display: none;">
+    <div id="videos"></div>
+    <input type="text" id="chat-input" placeholder="Type your message">
+    <button onclick="sendMessage()">Send</button>
+    <div id="chat-messages"></div>
+  </div>
 
-    <script>
-        let localStream;
-        let peerConnections = {};
-        const callOptionsDiv = document.getElementById('call-options');
-        const videoChatDiv = document.getElementById('video-chat');
-        const roomSetupDiv = document.getElementById('room-setup');
-        const joinRoomDiv = document.getElementById('join-room');
-        const videosDiv = document.getElementById('videos');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script>
+    const socket = io();
+    let localStream;
+    const peerConnections = {};
+    const callOptionsDiv = document.getElementById('call-options');
+    const videoChatDiv = document.getElementById('video-chat');
+    const roomSetupDiv = document.getElementById('room-setup');
+    const joinRoomDiv = document.getElementById('join-room');
+    const videosDiv = document.getElementById('videos');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
 
-        function startNewCall() {
-            // Display the room setup options
-            callOptionsDiv.style.display = 'none';
-            roomSetupDiv.style.display = 'block';
-            joinRoomDiv.style.display = 'none';
-        }
+    function startNewCall() {
+      callOptionsDiv.style.display = 'none';
+      roomSetupDiv.style.display = 'block';
+      joinRoomDiv.style.display = 'none';
+    }
 
-        function joinCall() {
-            // Display the room join options
-            callOptionsDiv.style.display = 'none';
-            roomSetupDiv.style.display = 'none';
-            joinRoomDiv.style.display = 'block';
-        }
+    function joinCall() {
+      callOptionsDiv.style.display = 'none';
+      roomSetupDiv.style.display = 'none';
+      joinRoomDiv.style.display = 'block';
+    }
 
-        function startVideoChat() {
-            const roomPassword = document.getElementById('room-password').value;
+    function startVideoChat() {
+      const roomPassword = document.getElementById('room-password').value;
 
-            // Set up local video stream
-            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-                .then((stream) => {
-                    localStream = stream;
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+        .then((stream) => {
+          localStream = stream;
+          const localVideo = createVideoElement('localVideo', localStream, true);
+          videosDiv.appendChild(localVideo);
 
-                    // Display local video
-                    const localVideo = document.createElement('video');
-                    localVideo.srcObject = localStream;
-                    localVideo.muted = true;
-                    videosDiv.appendChild(localVideo);
-                    localVideo.play();
+          videoChatDiv.style.display = 'block';
+          roomSetupDiv.style.display = 'none';
+          joinRoomDiv.style.display = 'none';
 
-                    videoChatDiv.style.display = 'block';
-                    roomSetupDiv.style.display = 'none';
-                    joinRoomDiv.style.display = 'none';
+          socket.emit('join', { password: roomPassword });
+        })
+        .catch((error) => {
+          console.error('Error accessing media devices:', error);
+        });
+    }
 
-                    // Send room information to others
-                    sendMessageToOthers({ type: 'join', password: roomPassword });
-                })
-                .catch((error) => {
-                    console.error('Error accessing media devices:', error);
-                });
-        }
+    function joinVideoChat() {
+      const roomPassword = document.getElementById('join-room-password').value;
 
-        function joinVideoChat() {
-            const roomPassword = document.getElementById('join-room-password').value;
+      if (!roomPassword.trim()) {
+        alert('Please enter the room password.');
+        return;
+      }
 
-            // Validate the room password
-            // For simplicity, you can add a basic validation check
-            if (roomPassword.trim() === '') {
-                alert('Please enter the room password.');
-                return;
-            }
+      socket.emit('join', { password: roomPassword });
+    }
 
-            // Send room information to others
-            sendMessageToOthers({ type: 'join', password: roomPassword });
+    function sendMessage() {
+      const message = chatInput.value;
+      displayMessage('You: ' + message);
+      socket.emit('message', { type: 'chat', message });
+      chatInput.value = '';
+    }
 
-            // Update UI
-            videoChatDiv.style.display = 'block';
-            joinRoomDiv.style.display = 'none';
-        }
+    socket.on('message', (data) => {
+      const { type, userId } = data;
 
-        function sendMessage() {
-            const message = chatInput.value;
-            displayMessage('You: ' + message);
-            sendMessageToOthers({ type: 'chat', message });
-            chatInput.value = '';
-        }
-
-        function sendMessageToOthers(data) {
-            // Send the data to other participants using your signaling server
-            // (You need to implement the signaling server for this)
-            // socket.emit('message', data);
-        }
-
-        function displayMessage(message) {
-            const messageDiv = document.createElement('div');
-            messageDiv.textContent = message;
-            chatMessages.appendChild(messageDiv);
-        }
-    </script>
-    <script>
-        // Add this code inside the <script> tag
-let localStream;
-let peerConnections = {};
-let socket; // Assume you have a socket connection to your signaling server
-
-function startVideoChat() {
-    // ... (existing code)
-
-    // Create a peer connection
-    const peerConnection = new RTCPeerConnection();
-
-    // Add local stream to the peer connection
-    localStream.getTracks().forEach(track => {
-        peerConnection.addTrack(track, localStream);
+      if (type === 'user-joined') {
+        displayMessage(`User ${userId} joined.`);
+        createPeerConnection(userId);
+      } else if (type === 'user-left') {
+        displayMessage(`User ${userId} left.`);
+        closePeerConnection(userId);
+      }
     });
 
-    // Set up event listeners for WebRTC events
-    peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-            // Send ICE candidate to other peers
-            sendMessageToOthers({ type: 'ice-candidate', candidate: event.candidate });
-        }
-    };
+    socket.on('participants', (data) => {
+      const { participants } = data;
+      participants.forEach((participant) => createPeerConnection(participant));
+    });
 
-    peerConnection.onnegotiationneeded = async () => {
-        // Create and send an offer to the other peer
+    function displayMessage(message) {
+      const messageDiv = document.createElement('div');
+      messageDiv.textContent = message;
+      chatMessages.appendChild(messageDiv);
+    }
+
+    function createPeerConnection(userId) {
+      const peerConnection = new RTCPeerConnection();
+
+      localStream.getTracks().forEach(track => {
+        peerConnection.addTrack(track, localStream);
+      });
+
+      peerConnection.onicecandidate = (event) => {
+        if (event.candidate) {
+          socket.emit('message', { type: 'ice-candidate', candidate: event.candidate, userId });
+        }
+      };
+
+      peerConnection.onnegotiationneeded = async () => {
         const offer = await peerConnection.createOffer();
         await peerConnection.setLocalDescription(offer);
-        sendMessageToOthers({ type: 'offer', offer: peerConnection.localDescription });
-    };
+        socket.emit('message', { type: 'offer', offer: peerConnection.localDescription, userId });
+      };
 
-    peerConnection.ontrack = (event) => {
-        // Display remote video
-        const remoteVideo = document.createElement('video');
-        remoteVideo.srcObject = event.streams[0];
+      peerConnection.ontrack = (event) => {
+        const remoteVideo = createVideoElement(`remoteVideo-${userId}`, event.streams[0]);
         videosDiv.appendChild(remoteVideo);
         remoteVideo.play();
-    };
+      };
 
-    // Assume you have a socket connection to your signaling server
-    socket.on('message', (data) => {
-        handleMessage(data, peerConnection);
-    });
-
-    // Save the peer connection in the global object for later reference
-    peerConnections[/* some unique identifier */] = peerConnection;
-}
-
-function joinVideoChat() {
-    // ... (existing code)
-
-    // Create a peer connection
-    const peerConnection = new RTCPeerConnection();
-
-    // Add local stream to the peer connection
-    localStream.getTracks().forEach(track => {
-        peerConnection.addTrack(track, localStream);
-    });
-
-    // Set up event listeners for WebRTC events
-    peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-            // Send ICE candidate to other peers
-            sendMessageToOthers({ type: 'ice-candidate', candidate: event.candidate });
-        }
-    };
-
-    peerConnection.onnegotiationneeded = async () => {
-        // Create and send an answer to the other peer
-        const answer = await peerConnection.createAnswer();
-        await peerConnection.setLocalDescription(answer);
-        sendMessageToOthers({ type: 'answer', answer: peerConnection.localDescription });
-    };
-
-    peerConnection.ontrack = (event) => {
-        // Display remote video
-        const remoteVideo = document.createElement('video');
-        remoteVideo.srcObject = event.streams[0];
-        videosDiv.appendChild(remoteVideo);
-        remoteVideo.play();
-    };
-
-    // Assume you have a socket connection to your signaling server
-    socket.on('message', (data) => {
-        handleMessage(data, peerConnection);
-    });
-
-    // Save the peer connection in the global object for later reference
-    peerConnections[/* some unique identifier */] = peerConnection;
-}
-
-function handleMessage(data, peerConnection) {
-    switch (data.type) {
-        case 'offer':
-            // Set remote description and create an answer
-            peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer))
-                .then(() => peerConnection.createAnswer())
-                .then(answer => peerConnection.setLocalDescription(answer))
-                .then(() => {
-                    // Send the answer to the other peer
-                    sendMessageToOthers({ type: 'answer', answer: peerConnection.localDescription });
-                });
-            break;
-        case 'answer':
-            // Set remote description
-            peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
-            break;
-        case 'ice-candidate':
-            // Add ICE candidate
-            peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
-            break;
-        // Handle other message types if needed
+      peerConnections[userId] = peerConnection;
     }
-}
 
-    </script>
+    function closePeerConnection(userId) {
+      const peerConnection = peerConnections[userId];
+
+      if (peerConnection) {
+        peerConnection.close();
+        delete peerConnections[userId];
+
+        // Remove the video element
+        const remoteVideo = document.getElementById(`remoteVideo-${userId}`);
+        if (remoteVideo) {
+          remoteVideo.remove();
+        }
+      }
+    }
+
+    function createVideoElement(id, stream, muted = false) {
+      const video = document.createElement('video');
+      video.id = id;
+      video.srcObject = stream;
+      video.muted = muted;
+      return video;
+    }
+  </script>
 </body>
 </html>
