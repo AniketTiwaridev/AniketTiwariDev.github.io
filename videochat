@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Chat</title>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <div id="call-options">
+        <button onclick="startNewCall()">Start New Call</button>
+        <button onclick="joinCall()">Join Call</button>
+    </div>
+
+    <div id="room-setup" style="display: none;">
+        <label for="room-password">Enter a room password:</label>
+        <input type="password" id="room-password">
+        <button onclick="startVideoChat()">Start Video Chat</button>
+    </div>
+
+    <div id="join-room" style="display: none;">
+        <label for="join-room-password">Enter the room password:</label>
+        <input type="password" id="join-room-password">
+        <button onclick="joinVideoChat()">Join Video Chat</button>
+    </div>
+
+    <div id="video-chat" style="display: none;">
+        <div id="videos"></div>
+        <input type="text" id="chat-input" placeholder="Type your message">
+        <button onclick="sendMessage()">Send</button>
+        <div id="chat-messages"></div>
+    </div>
+
+    <script>
+        let localStream;
+        let peerConnections = {};
+        const callOptionsDiv = document.getElementById('call-options');
+        const videoChatDiv = document.getElementById('video-chat');
+        const roomSetupDiv = document.getElementById('room-setup');
+        const joinRoomDiv = document.getElementById('join-room');
+        const videosDiv = document.getElementById('videos');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        function startNewCall() {
+            // Display the room setup options
+            callOptionsDiv.style.display = 'none';
+            roomSetupDiv.style.display = 'block';
+            joinRoomDiv.style.display = 'none';
+        }
+
+        function joinCall() {
+            // Display the room join options
+            callOptionsDiv.style.display = 'none';
+            roomSetupDiv.style.display = 'none';
+            joinRoomDiv.style.display = 'block';
+        }
+
+        function startVideoChat() {
+            const roomPassword = document.getElementById('room-password').value;
+
+            // Set up local video stream
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                .then((stream) => {
+                    localStream = stream;
+
+                    // Display local video
+                    const localVideo = document.createElement('video');
+                    localVideo.srcObject = localStream;
+                    localVideo.muted = true;
+                    videosDiv.appendChild(localVideo);
+                    localVideo.play();
+
+                    videoChatDiv.style.display = 'block';
+                    roomSetupDiv.style.display = 'none';
+                    joinRoomDiv.style.display = 'none';
+
+                    // Send room information to others
+                    sendMessageToOthers({ type: 'join', password: roomPassword });
+                })
+                .catch((error) => {
+                    console.error('Error accessing media devices:', error);
+                });
+        }
+
+        function joinVideoChat() {
+            const roomPassword = document.getElementById('join-room-password').value;
+
+            // Validate the room password
+            // For simplicity, you can add a basic validation check
+            if (roomPassword.trim() === '') {
+                alert('Please enter the room password.');
+                return;
+            }
+
+            // Send room information to others
+            sendMessageToOthers({ type: 'join', password: roomPassword });
+
+            // Update UI
+            videoChatDiv.style.display = 'block';
+            joinRoomDiv.style.display = 'none';
+        }
+
+        function sendMessage() {
+            const message = chatInput.value;
+            displayMessage('You: ' + message);
+            sendMessageToOthers({ type: 'chat', message });
+            chatInput.value = '';
+        }
+
+        function sendMessageToOthers(data) {
+            // Send the data to other participants using your signaling server
+            // (You need to implement the signaling server for this)
+            // socket.emit('message', data);
+        }
+
+        function displayMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+        }
+    </script>
+</body>
+</html>
