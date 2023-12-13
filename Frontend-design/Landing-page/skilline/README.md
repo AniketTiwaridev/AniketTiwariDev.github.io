@@ -1,7 +1,7 @@
 # Skilline Landing Page
 Free landing page template built on top of TailwindCSS
 
-> [LIVE DEMO](https://mhaecal.github.io/frontend/skilline)
+> [LIVE DEMO](https://anikettiwaridev.github.io/Frontend-design/Landing-page/skilline/)
 
 ![alt Free Tailwind Landing Page Template](https://i.postimg.cc/q7xRmNVp/FB-IMG-16158730841972067.jpg)
 
@@ -13,12 +13,12 @@ Free landing page template built on top of TailwindCSS
 ## Getting Started
 The template is just a HTML file using a CDN service
 
-`git clone https://github.com/mhaecal/skilline-landing-page.git`
+
 
 #
 Use it for learn, but please don’t republish, redistribute, or resell the template.
 
-For personal or commersial project, just contact [Irvan Moses](https://www.facebook.com/irvan.moses)
+For personal or commersial project, just Whatsapp On (https://api.whatsapp.com/send/?phone=918802042444&text=Hi I want to create site&type=phone_number&app_absent=0)
 
-- Code by mhaecal
-- UI/UX by irvanmoses
+- Code by Aniket
+- UI/UX by Aniket
