@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>CarPartsSolution</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
+    </head>
+   
+</head>
+
+<body>
+    <div class="container">
+        <!---menubar----->
+    <section id="menubar" class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Car Parts <sub>Solution</sub></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Brands</a>
+                        </li>
+                        <!--         <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+    
+                    </ul>
+                    <!--    <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+                </div>
+            </div>
+        </nav>
+    </section>
+        <!---Slider----->
+    <section id="slider">
+        <div class="contianer">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://media.istockphoto.com/id/478107962/photo/auto-parts.jpg?s=612x612&w=0&k=20&c=C31mE-cVYFlLqJp9smDKUczPoBEtoYl5gaGxdvH0lmM="
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://media.istockphoto.com/id/478113430/photo/car-parts.jpg?s=1024x1024&w=is&k=20&c=nq0iLYFaIApgUpo7dgXnuTb17Q2kx2fhbJ8NbT2J4jA="
+                            class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://www.shutterstock.com/image-illustration/car-parts-auto-spare-isolated-600nw-2283939101.jpg"
+                            class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+        <!---Search Filter--->
+<section id="searchfilter">
+    <div class="filter-form text-center">
+        <form>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-2">
+                        <select id="car-company">
+                            <option value="null">Select Company</option>
+                            <option value="TATA">TATA</option>
+                            <option value="MAHINDRA">MAHINDRA</option>
+                            <option value="TOYOTA">TOYOTA</option>
+                            <option value="HONDA">HONDA</option>
+                            <option value="FORD">FORD</option>
+                            <option value="CHEVROLET">CHEVROLET</option>
+                            <option value="BMW">BMW</option>
+                            <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+                            <option value="AUDI">AUDI</option>
+                            <option value="NISSAN">NISSAN</option>
+                            <option value="HYUNDAI">HYUNDAI</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <select id="mfg-year">
+                            <option value="null">Select Year</option>
+                            <!-- You can use a server-side script to generate the options dynamically -->
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <select id="car-model">
+                            <option value="null">Select Model</option>
+                            <option value="TATA">TATA</option>
+                            <option value="MAHINDRA">MAHINDRA</option>
+                            <option value="TOYOTA">TOYOTA</option>
+                            <option value="HONDA">HONDA</option>
+                            <option value="FORD">FORD</option>
+                            <option value="CHEVROLET">CHEVROLET</option>
+                            <option value="BMW">BMW</option>
+                            <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+                            <option value="AUDI">AUDI</option>
+                            <option value="NISSAN">NISSAN</option>
+                            <option value="HYUNDAI">HYUNDAI</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <select id="car-parts">
+                            <option value="null">Select Part</option>
+                            <option value="Engine">Engine</option>
+                            <option value="Transmission">Transmission</option>
+                            <option value="Suspension System">Suspension System</option>
+                            <option value="Brake System">Brake System</option>
+                            <option value="Exhaust System">Exhaust System</option>
+                            <option value="Steering System">Steering System</option>
+                            <option value="Battery">Battery</option>
+                            <option value="Tires">Tires</option>
+                            <option value="Lights">Lights</option>
+                            <option value="Air Conditioning System">Air Conditioning System</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="submit" class="btn btn-danger p-2 w-100" type="submit">Serach</button>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</section>
+        <!---index-popular-products----->
+       <section id="index-popular-products" class="mt-5">
+        <div class="container">
+            <div class="heading">
+                <h2>Most Popular <span>Parts</span></h2>
+            </div>
+            <div class="row popular-products" id="items-container">
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item d-flex align-items-center justify-content-center">
+    <div class="card w-100 mb-2">
+        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+        <span class="title">Product Name</span>
+        <span class="price">$100</span>
+    </div>
+</div>
+
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+                <div class="col-md-3 item">
+                    <div class="card w-100 mb-2">
+                        <div class="image"><img src="https://ic.carid.com/icons/brakes_ic_5.jpg"></div>
+                        <span class="title">Product Name</span>
+                        <span class="price">$100</span>
+                    </div>
+                </div>
+    
+    
+            </div>
+            <button id="load-more-btn" class="btn btn-success mb-2" onclick="loadMoreItems()">Load More</button>
+    
+        </div>
+    </section>
+    
+
+        <!---Offer-slider-->
+     <section id="offer" class="mt-5">
+        <div class="heading">
+            <h2>Best Deals</h2>
+        </div>
+        <div class="owl-carousel">
+            <div class="offer">
+                <h3>Offer 1</h3>
+                <p>Description for Offer 1.</p>
+            </div>
+            <div class="offer">
+                <h3>Offer 2</h3>
+                <p>Description for Offer 2.</p>
+            </div>
+            <div class="offer">
+                <h3>Offer 3</h3>
+                <p>Description for Offer 3.</p>
+            </div>
+            <!-- Add more offer items as needed -->
+        </div>
+    </section>
+    
+
+
+        <!---Why us-->
+    <section id="why-us" class="mt-5">
+        <div class="container">
+            <div class="heading">
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-md-4 p-2 mb-3">
+                    <div class="card-lower p-4">
+                        <div class="card-upper">
+                            <i class="fa-solid fa-star"></i>
+                            <h4>Best Quality</h4>
+                            <div style="text-align: justify; padding: 15px;">
+                                <p>Only reliable parts from trusted Aftermarket brands</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2 mb-3">
+                    <div class="card-lower p-4">
+                        <div class="card-upper">
+                            <i class="fa-solid fa-indian-rupee-sign"></i>
+                            <h4>Affordable Rates</h4>
+                            <div style="text-align: justify; padding: 15px;">
+                                <p>Repairing a damaged vehicle can be expensive. Using the aftermarket products is a good
+                                    solution if you're on a budget</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 p-2 mb-3">
+                    <div class="card-lower p-4">
+                        <div class="card-upper">
+                            <i class="fa-solid fa-store"></i>
+                            <h4>Wide variety</h4>
+                            <div style="text-align: justify; padding: 15px;">
+                                <p>We have something for everyone when it comes to aftermarket products. Just apply the
+                                    "Aftermarket" filter in the catalogue and check the offers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+        <!----Testimonial--->
+       <section id="testimonial">
+        <div class="heading">
+            <h2>What Clients Say</h2>
+        </div>
+        <div class="svg-container">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol viewBox="0 0 43.763 23.214">
+                    <g id="arrow-left" transform="translate(2.886 2.823)">
+                        <line id="Line_183" data-name="Line 183" x1="38.495" transform="translate(0.382 8.862)" fill="none"
+                            stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" />
+                        <line id="Line_184" data-name="Line 184" y1="8.205" x2="9.256" transform="translate(0.382 0)" fill="none"
+                            stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" />
+                        <line id="Line_185" data-name="Line 185" x2="10" y2="9" transform="translate(-0.062 8.566)" fill="none"
+                            stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" />
+                    </g>
+                </symbol>
+                <symbol id="arrow" viewBox="0 0 400.004 400.004" style="enable-background:new 0 0 400.004 400.004;"
+                    xml:space="preserve">
+                    <g>
+                        <path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757
+                            c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072
+                            c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315
+                            C400.004,190.438,392.251,182.686,382.688,182.686z" />
+                    </g>
+                </symbol>
+            </svg>
+        </div>
+    
+        <section class="half-color-box">
+            <div class="container spacer por">
+                <div class="text-whtie text-center ml-3">
+                    <h1 class="bold">Client Review</h1>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, at!
+                    </p>
+                </div>
+                <div class="test-arrowbox">
+    
+                    <div class="swiper-button-prev-test">
+                        <svg fill="red" height="34" class="arrow left">
+                            <use xlink:href="#arrow" />
+                        </svg>
+                    </div>
+                    <div class="swiper-button-next-test">
+                        <div class="arrow-right">
+                            <svg fill="red" height="60" width="60" class="arrow">
+                                <use xlink:href="#arrow" />
+                            </svg>
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="swiper-container swiper-testimonial">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="review-box">
+                                <div class="media">
+                                    <img class="mr-3" src="https://picsum.photos/50/50" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5>Amanda Jackson</h5>
+                                        <p class="user-post">CEO, NRD Group</p>
+                                    </div>
+                                </div>
+                                <p class="read">
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the race.
+                                </p>
+                                <img class="quote" src="img/icons/quote.svg" alt="">
+    
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-box">
+                                <div class="media">
+                                    <img class="mr-3" src="https://picsum.photos/50/50/" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5>Amanda Jackson</h5>
+                                        <p class="user-post">CEO, NRD Group</p>
+                                    </div>
+                                </div>
+                                <p class="read">
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the race.
+                                </p>
+                                <img class="quote" src="img/icons/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-box">
+                                <div class="media">
+                                    <img class="mr-3" src="https://picsum.photos/50/50" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5>Amanda Jackson</h5>
+                                        <p class="user-post">CEO, NRD Group</p>
+                                    </div>
+                                </div>
+                                <p class="read">
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the race.
+                                </p>
+                                <img class="quote" src="img/icons/quote.svg" alt="">
+    
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-box">
+                                <div class="media">
+                                    <img class="mr-3" src="img/icons/user.png" alt="Generic placeholder image">
+                                    <div class="media-body">
+                                        <h5>Amanda Jackson</h5>
+                                        <p class="user-post">CEO, NRD Group</p>
+                                    </div>
+                                </div>
+                                <p class="read">
+                                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged. It was popularised in the 1960s with the race.
+                                </p>
+                                <img class="quote" src="img/icons/quote.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+    
+                </div>
+            </div>
+        </section>
+    </section>
+
+        <!--Brand-->
+       <section id="brand" class="mt-5">
+        <div class="heading">
+            <h2>We Deals In This Brands </h2>
+        </div>
+        <div class="owl-carousel brand-carousel">
+            <div class="brand">
+                <h3>brand 1</h3>
+                <p>Description for brand 1.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 2</h3>
+                <p>Description for brand 2.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 3</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 4</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 5</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 6</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 7</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <div class="brand">
+                <h3>brand 8</h3>
+                <p>Description for brand 3.</p>
+            </div>
+            <!-- Add more brand items as needed -->
+        </div>
+    </section>
+        
+
+
+    </div>
+    <!----Download mobile app-->
+    <section id="Download">
+        <div class="container">
+            <div class=" row download">
+                <div class="text col-md-6">
+                    <h3>Download</h3>
+                    <h2>Our Mobile app</h2>
+                    <p>And get the full Information of CarParts On One Click</p>
+                </div>
+                <div class="col-md-6 download-btn text-center">
+                    <button class="btn btn-warning mt-5">Download From Here</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---footer---->
+<section id="footer-menu">
+    <div class="container mx-auto">
+        <div class="row footer-links">
+            <div class="col-md-3">
+                <div class="footer-logo">
+                    <img src="">
+                    <a class="navbar-brand" href="#">Car Parts <sub>Solution</sub></a>
+                </div>
+                <div class="download-btn">
+                    <button class="btn btn-warning">Download our App</button>
+                </div>
+            </div>
+            <div class="Connect-us col-md-3">
+                <h4>Connect With US</h4>
+                <ul>
+                    <li>About US</li>
+                    <li>Contact Us</li>
+                    <li>FAQs</li>
+                </ul>
+            </div>
+            <div class="policy col-md-3">
+                <h4>Policy</h4>
+                <ul>
+                    <li>Return Policy</li>
+                    <li>Privacy Policy</li>
+                    <li>Disclaimer</li>
+                    <li>Terms of Use</li>
+                    <li>Buyers Policy</li>
+                    <li>Sellers Policy</li>
+                </ul>
+            </div>
+            <div class="usefull-links col-md-3">
+                <h4>Use Full Links</h4>
+                <ul>
+                    <li>Articles</li>
+                    <li>Brands</li>
+                    <li>Car Makers</li>
+                    <li>Site Map</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-------Social media-->
+<div id="social-media">
+    <ul id="social-sidebar">
+        <li>
+            <a class="entypo-twitter"><span>Tweeter</span></a>
+        </li>
+        <li>
+            <a class="entypo-facebook"><span>Facebook</span></a>
+        </li>
+        <li>
+            <a class="entypo-gplus"><span>Google+</span></a>
+        </li>
+        <li>
+            <a class="entypo-dribbble"><span>Dribbble</span></a>
+        </li>
+        <li>
+            <a class="entypo-dropbox"><span>Dropbox</span></a>
+        </li>
+        <li>
+            <a class="entypo-github"><span>Github</span></a>
+        </li>
+        <li>
+            <a class="entypo-evernote"><span>Evernote</span></a>
+        </li>
+    </ul>
+</div>
+
+    <footer class="text-center p-2 border">
+        <span>© 2015-2024 Car Parts Solution Pvt. Ltd. </span>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+    // Initialize Owl Carousel
+    $('.brand-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: false
+            },
+            1000: {
+                items: 5,
+                nav: true,
+                loop: false
+            }
+        }
+    })
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+    <script type="text/javascript">
+        var swiper = new Swiper('.swiper-container.swiper-testimonial', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next-test',
+                prevEl: '.swiper-button-prev-test',
+            },
+        });
+    </script>
+    <!-- Owl Carousel JavaScript -->    
+    <script>
+        // Initialize Owl Carousel
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 2
+                    }
+                }
+            });
+        });
+    </script>
+        <script>
+            let itemsPerPage = 4;
+            let currentIndex = itemsPerPage;
+
+            function loadMoreItems() {
+                const items = document.querySelectorAll('.item');
+
+                for (let i = currentIndex; i < currentIndex + itemsPerPage; i++) {
+                    if (items[i]) {
+                        items[i].style.display = 'block';
+                    }
+                }
+
+                currentIndex += itemsPerPage;
+
+                // Hide the "Load More" button if there are no more items
+                if (currentIndex >= items.length) {
+                    document.getElementById('load-more-btn').style.display = 'none';
+                }
+            }
+
+            // Initially hide items beyond the first set
+            document.addEventListener('DOMContentLoaded', function () {
+                const items = document.querySelectorAll('.item');
+                for (let i = itemsPerPage; i < items.length; i++) {
+                    items[i].style.display = 'none';
+                }
+            });
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

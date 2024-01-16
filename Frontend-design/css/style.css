@@ -1,0 +1,462 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-white {
+  background-color: white;
+}
+.nav-item a {
+  color: white;
+}
+.carousel-inner,
+.carousel-item img {
+  height: 350px;
+}
+.carousel-indicators button {
+  border-radius: 50%;
+  height: 12px !important;
+  width: 12px !important;
+}
+.heading {
+  margin: 10px;
+  font-weight: bolder;
+  font-family: fantasy;
+}
+.card {
+  position: relative;
+  width: 11.875em;
+  height: 16.5em;
+  box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 120ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 0.5em;
+  padding-bottom: 3.4em;
+}
+:root {
+  --theme-color: #3950ca;
+  --bg-color: rgba(79, 48, 183, 0.06);
+  --comp-color: #ff6584;
+  --gradient: linear-gradient(#6a5fdd 0%, #241d8c 100%);
+}
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  pading: 0;
+}
+.text-center {
+  text-align: center;
+}
+h2,
+h1 {
+  margin: 0;
+  padding-top: 30px;
+}
+
+.bg-color {
+  background: var(--bg-color);
+}
+
+.half-color-box {
+  background: var(--gradient);
+  height: 300px;
+  margin-bottom: 100px;
+}
+
+.text-whtie {
+  color: #fff !important;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.por {
+  position: relative;
+}
+
+.review-box .quote {
+  position: absolute;
+  width: 40px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.test-arrowbox {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  top: 70px;
+}
+
+.review-box {
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.review-box h5 {
+  margin: 0;
+}
+
+.review-box p {
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: #7d8597;
+}
+
+.user-post {
+  font-size: 14px;
+  margin: 0 !important;
+}
+
+.swiper-testimonial {
+  padding: 100px 20px;
+  padding-top: 30px;
+}
+
+.half-color-box {
+  background: var(--gradient);
+  height: 300px;
+  margin-bottom: 140px;
+}
+
+.test-arrowbox .swiper-button-next-test,
+.test-arrowbox .swiper-button-prev-test {
+  margin-right: 20px;
+  /* background: var(--comp-color);2 */
+  border-radius: 50%;
+  --size: 55px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-right {
+  transform: rotate(180deg);
+  margin-top: -8px;
+}
+
+.arrow {
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.arrow:hover {
+  transform: translateX(-15px);
+}
+/*.card::after {
+  content: "Add to Cart";
+  padding-top: 1.25em;
+  padding-left: 1.25em;
+  position: absolute;
+  left: 0;
+  bottom: -60px;
+  background: #00AC7C;
+  color: #fff;
+  height: 2.5em;
+  width: 90%;
+  transition: all 80ms;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0;
+}*/
+
+.card .title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  position: absolute;
+  left: 0.625em;
+  bottom: 1.875em;
+  font-weight: 400;
+  color: #000;
+}
+
+.card .price {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 0.9em;
+  position: absolute;
+  left: 0.625em;
+  bottom: 0.625em;
+  color: #000;
+}
+
+.card:hover::after {
+  bottom: 0;
+  opacity: 1;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+/*.card:active::after {
+  content: "Added !";
+  height: 3.125em;
+}*/
+
+.text {
+  max-width: 55px;
+}
+
+.image {
+  background: rgb(241, 241, 241);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.image img {
+  width: 100%;
+  height: auto;
+}
+.filter-form {
+  background: #12477a;
+  padding: 10px;
+}
+.filter-form form {
+  margin: 10px 12px 10px 12px;
+}
+
+.filter-form form select {
+  padding: 8px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 3px;
+}
+/*
+.searchbtn {
+ padding: 0.2em;
+ border: 2px solid #17C3B2;
+ position: relative;
+ overflow: hidden;
+ background-color: transparent;
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ transition: .3s;
+ z-index: 1;
+ font-family: inherit;
+ color: #17C3B2;
+ width: 195px;
+}
+
+.searchbtn::before {
+ content: '';
+ height: 300%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) rotate(45deg);
+ background: #17C3B2;
+ transition: .5s ease;
+ display: block;
+ z-index: -1;
+}
+
+.searchbtn:hover::before {
+ width: 105%;
+}
+
+.searchbtn:hover {
+ color: #111;
+}*/
+.brand-carousel {
+  display: flex;
+  justify-content: center;
+}
+
+.owl-item {
+  padding: 10px;
+}
+
+.offer {
+  border: 1px solid #ddd;
+  width: 554px;
+  height: 275px;
+  padding: 20px;
+  text-align: center;
+}
+.brand {
+  border: 1px solid #ddd;
+  height: 100px;
+  /*width: 220px;*/
+  padding: 20px;
+  text-align: center;
+}
+button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+  font-size: 42px !important;
+  margin: 5px;
+}
+.card-lower {
+  width: 1005;
+  height: 380px;
+  background-color: #b0cce7;
+}
+.card-upper {
+  width: 100%;
+  height: 380px;
+  color: white;
+  background: black;
+  transition: 0.5s all;
+  text-align: center;
+}
+.card-upper:hover {
+  cursor: pointer;
+  box-shadow: 0 29px 52px rgba(0, 0, 0, 0.4), 0 25px 16px rgba(0, 0, 0, 0.2);
+  margin-top: -50px;
+}
+
+i {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: 80px;
+}
+#Download {
+  background-image: linear-gradient(to right, #a30b0b, #12477a);
+  padding: 80px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+#Download .text h2,
+h3,
+p {
+  color: white;
+  font-family: Time;
+  font-weight: bolder;
+}
+.footer-links {
+  margin: auto;
+  justify-content: center;
+}
+.footer-links ul li {
+  list-style: none;
+  font-weight: 600;
+  transition: 0.5s all;
+}
+.footer-links ul li:hover {
+  list-style: none;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+/* Hide the SVG on mobile devices */
+@media only screen and (max-width: 767px) {
+  .arrow {
+    display: none;
+  }
+}
+
+#social-sidebar {
+  left: -30px;
+  position: fixed;
+  top: 30%;
+  z-index: 99;
+}
+#social-sidebar li {
+  list-style: none;
+}
+#social-sidebar li:first-child a {
+  border-top-right-radius: 5px;
+}
+#social-sidebar li:last-child a {
+  border-bottom-right-radius: 5px;
+}
+
+#social-sidebar a {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  height: 50px;
+  width: 50px;
+  font-size: 24px;
+  line-height: 50px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+#social-sidebar a:hover span {
+  left: 120%;
+  opacity: 1;
+}
+#social-sidebar a span {
+  font: 12px "Open Sans", sans-serif;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 24px;
+  left: -100%;
+  margin-top: -16px;
+  opacity: 0;
+  padding: 4px 8px;
+  position: absolute;
+  transition: opacity 0.3s, left 0.4s;
+  top: 50%;
+  z-index: -1;
+}
+
+#social-sidebar a span:before {
+  content: "";
+  display: block;
+  height: 8px;
+  width: 8px;
+  left: -4px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+#social-sidebar a[class*="twitter"]:hover,
+#social-sidebar a[class*="twitter"] span,
+#social-sidebar a[class*="twitter"] span:before {
+  background: #00aced;
+}
+
+#social-sidebar a[class*="facebook"]:hover,
+#social-sidebar a[class*="facebook"] span,
+#social-sidebar a[class*="facebook"] span:before {
+  background: #3b5998;
+}
+
+#social-sidebar a[class*="gplus"]:hover,
+#social-sidebar a[class*="gplus"] span,
+#social-sidebar a[class*="gplus"] span:before {
+  background: #e34429;
+}
+
+#social-sidebar a[class*="dribbble"]:hover,
+#social-sidebar a[class*="dribbble"] span,
+#social-sidebar a[class*="dribbble"] span:before {
+  background: #ea4c89;
+}
+
+#social-sidebar a[class*="dropbox"]:hover,
+#social-sidebar a[class*="dropbox"] span,
+#social-sidebar a[class*="dropbox"] span:before {
+  background: #8dc5f2;
+}
+
+#social-sidebar a[class*="github"]:hover,
+#social-sidebar a[class*="github"] span,
+#social-sidebar a[class*="github"] span:before {
+  background: #9c7a5b;
+}
+
+#social-sidebar a[class*="evernote"]:hover,
+#social-sidebar a[class*="evernote"] span,
+#social-sidebar a[class*="evernote"] span:before {
+  background: #6bb130;
+}
