@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mitali Electro Sales Corporation LLP — Inverter, Battery & UPS Dealer | Delhi NCR</title>
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,300;0,600;0,800;1,300;1,600&display=swap" rel="stylesheet"/>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Plus Jakarta Sans', 'sans-serif'],
+          display: ['Fraunces', 'serif'],
+        },
+        colors: {
+          primary: {
+            DEFAULT: '#1A3A6B',
+            light: '#2457A4',
+          },
+          accent: {
+            DEFAULT: '#F05A1A',
+            2: '#FFB830',
+          },
+          surface: {
+            DEFAULT: '#F8FAFF',
+            2: '#EEF2FA',
+          },
+          border: '#DCE4F0',
+          muted: '#6B7A99',
+          success: '#16A34A',
+        },
+        boxShadow: {
+          sm: '0 2px 8px rgba(26,58,107,0.07)',
+          md: '0 8px 32px rgba(26,58,107,0.10)',
+          lg: '0 20px 60px rgba(26,58,107,0.13)',
+        },
+        keyframes: {
+          marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+          fadeIn: { from: { opacity: '0', transform: 'translateY(12px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
+        },
+        animation: {
+          marquee: 'marquee 22s linear infinite',
+          fadeIn: 'fadeIn 0.4s ease forwards',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  /* Swiper custom */
+  .swiper { border-radius: 1.25rem; }
+  .swiper-pagination-bullet-active { background: #F05A1A !important; }
+  .swiper-button-next, .swiper-button-prev { color: #fff !important; background: rgba(0,0,0,0.35); width: 36px !important; height: 36px !important; border-radius: 50%; }
+  .swiper-button-next::after, .swiper-button-prev::after { font-size: 14px !important; }
+/*logo*/
+.logo-name-sm, .slogan-sm{
+    display: none;
+}
+  /* Marquee pause on hover */
+  .marquee-track:hover { animation-play-state: paused; }
+
+  /* Marquee fade edges */
+  .marquee-wrap::before, .marquee-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .marquee-wrap::before { left: 0; background: linear-gradient(to right, #F8FAFF, transparent); }
+  .marquee-wrap::after  { right: 0; background: linear-gradient(to left,  #F8FAFF, transparent); }
+
+  /* Active indicator for category sidebar */
+  .cat-btn-active { background: rgba(255,255,255,0.10); color: #fff; font-weight: 700; }
+  .cat-btn-active .cat-pill { background: #F05A1A; color: #fff; }
+
+  /* service card top border */
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2457A4, #F05A1A);
+    border-radius: 18px 18px 0 0;
+  }
+
+  /* CTA radial bg */
+  .cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,184,48,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .float-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform .2s, box-shadow .2s;
+}
+
+  /* Hero radial */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -150px; right: -150px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(36,87,164,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: 10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(240,90,26,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* FAQ chevron */
+  .faq-open .faq-chevron { transform: rotate(180deg); }
+  .faq-chevron { transition: transform 0.2s; }
+
+  /* Product panel */
+  .prod-panel { display: none; }
+  .prod-panel.active { display: flex; flex-direction: column; }
+  .brand-prod-panel { display: none; }
+  .brand-prod-panel.active { display: block; }
+
+  /* Cat btn indicator */
+  .cat-btn { position: relative; }
+  .cat-btn.active::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: #FFB830;
+    border-radius: 0 3px 3px 0;
+  }
+  @media (max-width: 1024px) {
+    .cat-btn.active::after {
+      top: auto; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 3px;
+      border-radius: 0;
+    }
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Hide nav links on mobile */
+  @media (max-width: 768px) {
+    .nav-links-desktop { display: none; }
+    .logo-name-lg, .slogan-lg{
+        display: none;
+  }
+  .logo-name-sm{
+      display: block;
+  }
+  .slogan-sm{
+      display: block;
+  }
+
+</style>
+</head>
+<body class="font-sans text-gray-900 bg-white">
+
+<!-- ═══════════════════════════
+  NAVBAR
+════════════════════════════ -->
+<nav class="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-[72px] gap-4">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 flex-shrink-0">
+      <img src="https://5.imimg.com/data5/SELLER/Logo/2022/2/EQ/FB/DH/145546901/mitali-electro-sales-corporation-llp-logo-90x90.jpeg"
+           alt="MESC LLP" class="h-11 w-11 rounded-xl object-contain shadow-sm" loading="lazy">
+      <div>
+        <div class="text-sm font-extrabold text-primary leading-tight logo-name-lg">Mitali Electro Sales Corporation LLP</div>
+        <div class="text-sm font-extrabold text-primary leading-tight logo-name-sm">MESC LLP</div>
+        <div class="text-[10.5px] text-muted mt-0.5 slogan-lg">Empower your work with uninterrupted power supply</div>
+        <div class="text-[10.5px] text-muted mt-0.5 slogan-sm">Empower your work with<br> uninterrupted power supply</div>
+      </div>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="nav-links-desktop hidden md:flex items-center gap-7">
+      <a href="#products"       class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">Products</a>
+      <a href="#services-detail" class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">Services</a>
+      <a href="#brands"         class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">Partners</a>
+      <a href="#why"            class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">Why Us</a>
+      <a href="#faq"            class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">FAQ</a>
+      <a href="#contact"        class="text-[13px] font-semibold text-muted hover:text-primary transition-colors">Contact</a>
+    </div>
+
+    <!-- CTA -->
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+            class="flex-shrink-0 bg-accent hover:bg-orange-700 text-white text-[13px] font-bold px-5 py-[10px] rounded-[10px] transition-all hover:-translate-y-px whitespace-nowrap">
+      Get Free Quote
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════
+  HERO
+════════════════════════════ -->
+<section class="hero-bg relative overflow-hidden bg-gradient-to-br from-blue-50 via-[#E8F0FD] to-purple-50">
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+    <!-- Right — Swiper carousel -->
+    <div class="relative">
+      <div class="swiper hero-swiper shadow-lg rounded-[20px] overflow-hidden bg-white border border-border">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="carousel-img swiper-slide flex items-center justify-center bg-surface h-[280px] sm:h-[320px]">
+            <img src="https://mescllp.in/src/img/stablizer-group.png"
+                 alt="Microtek Inverter" class="h-5 object-contain p-4" loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/400x280?text=Microtek+Inverter'">
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide flex items-center justify-center bg-surface h-[280px] sm:h-[320px]">
+            <img src="https://mescllp.in/src/img/SMF-group.png"
+                 alt="Luminous Battery" class="h-52 object-contain p-4" loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/400x280?text=Luminous+Battery'">
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-img swiper-slide flex items-center justify-center bg-surface h-[280px] sm:h-[320px]">
+            <img src="https://mescllp.in/src/img/jumbo-group image.png"
+                 alt="Exide Battery" class="h-52 object-contain p-4" loading="lazy"
+                 onerror="this.src='https://via.placeholder.com/400x280?text=Exide+Battery'">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <!-- Floating tags -->
+      <div class="flex flex-wrap gap-2 mt-4">
+        <span class="bg-surface-2 text-primary text-[11px] font-semibold px-3 py-1.5 rounded-full border border-border">GST Invoice</span>
+        <span class="bg-surface-2 text-primary text-[11px] font-semibold px-3 py-1.5 rounded-full border border-border">Free Installation</span>
+        <span class="bg-surface-2 text-primary text-[11px] font-semibold px-3 py-1.5 rounded-full border border-border">Old Battery Exchange</span>
+        <span class="bg-surface-2 text-primary text-[11px] font-semibold px-3 py-1.5 rounded-full border border-border">Best Price</span>
+      </div>
+    </div>
+
+    <!-- Left -->
+    <div>
+      <div class="inline-flex items-center gap-2 bg-yellow-50 text-yellow-700 text-[11px] font-bold px-3.5 py-1.5 rounded-full border border-yellow-200 uppercase tracking-wide mb-5">
+        <i class="fas fa-certificate"></i> Trusted &amp; Authorised Partner
+      </div>
+      <h1 class="font-display text-4xl sm:text-[44px] font-extrabold text-gray-900 leading-[1.1] tracking-tight mb-3">
+        Empower your work with<br><span class="text-accent">uninterrupted power.</span>
+      </h1>
+      <p class="text-sm text-muted italic mb-4">"Reliable power, every hour."</p>
+      <p class="text-[15px] text-[#4A5A7A] leading-relaxed mb-7">
+        Delhi NCR's trusted partner for inverters, batteries &amp; UPS systems. Genuine products, expert installation, and lifetime after-sales support — at the best price guaranteed.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20a%20quote%20for%20inverter%2Fbattery%2FUPS"
+           class="inline-flex items-center gap-2 bg-accent hover:bg-orange-700 text-white font-bold text-sm px-6 py-3 rounded-[10px] shadow-[0_4px_16px_rgba(240,90,26,0.25)] transition-all hover:-translate-y-0.5">
+          <i class="fab fa-whatsapp"></i> WhatsApp for Quote
+        </a>
+        <a href="tel:+917838493878"
+           class="inline-flex items-center gap-2 bg-transparent text-primary font-bold text-sm px-5 py-3 rounded-[10px] border-2 border-border hover:border-primary hover:bg-primary/5 transition-all">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  STATS
+════════════════════════════ -->
+<div class="bg-white border-t border-b border-border py-10">
+  <div class="max-w-3xl mx-auto px-5 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+    <div><div class="font-display text-3xl font-extrabold text-primary">10,000+</div><div class="text-[12px] text-muted mt-1.5 font-semibold">Happy Customers</div></div>
+    <div><div class="font-display text-3xl font-extrabold text-primary">12+</div><div class="text-[12px] text-muted mt-1.5 font-semibold">Years of Experience</div></div>
+    <div><div class="font-display text-3xl font-extrabold text-primary">8</div><div class="text-[12px] text-muted mt-1.5 font-semibold">Trusted Brands</div></div>
+    <div><div class="font-display text-3xl font-extrabold text-primary">24×7</div><div class="text-[12px] text-muted mt-1.5 font-semibold">Service Support</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  PRODUCTS
+════════════════════════════ -->
+<section id="products" class="bg-surface py-16 sm:py-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3">
+      <i class="fas fa-th-large"></i> Our Products
+    </div>
+    <h2 class="font-display text-3xl sm:text-[32px] font-extrabold tracking-tight mb-2">Products built for every need</h2>
+    <p class="text-[15px] text-muted mb-10">100% genuine, manufacturer-backed products. GST invoice on every purchase.</p>
+
+    <!-- Shell -->
+    <div class="rounded-[20px] border border-border shadow-md bg-white overflow-hidden">
+      <div class="flex flex-col lg:grid lg:grid-cols-[220px_1fr]">
+
+        <!-- Category Sidebar -->
+        <div id="catSidebar" class="bg-primary flex lg:flex-col flex-row overflow-x-auto">
+          <div class="hidden lg:block text-[10px] font-bold text-white/30 uppercase tracking-widest px-5 py-3 border-b border-white/10">Categories</div>
+          <button class="cat-btn active flex items-center gap-3 px-5 py-3.5 text-white/90 font-bold text-[13px] bg-white/10 whitespace-nowrap transition-all"
+                  onclick="switchCat('online-ups',this)">
+            <i class="fas fa-plug text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">Online UPS</span>
+            <span class="ml-auto hidden lg:flex bg-accent text-white text-[10px] rounded-full px-2 py-0.5 cat-pill">6</span>
+          </button>
+          <button class="cat-btn flex items-center gap-3 px-5 py-3.5 text-white/55 hover:text-white hover:bg-white/6 font-medium text-[13px] whitespace-nowrap transition-all"
+                  onclick="switchCat('smf-battery',this)">
+            <i class="fas fa-battery-full text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">SMF Batteries</span>
+            <span class="ml-auto hidden lg:flex bg-white/10 text-white/60 text-[10px] rounded-full px-2 py-0.5 cat-pill">5</span>
+          </button>
+          <button class="cat-btn flex items-center gap-3 px-5 py-3.5 text-white/55 hover:text-white hover:bg-white/6 font-medium text-[13px] whitespace-nowrap transition-all"
+                  onclick="switchCat('inverter',this)">
+            <i class="fas fa-bolt text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">Inverter</span>
+            <span class="ml-auto hidden lg:flex bg-white/10 text-white/60 text-[10px] rounded-full px-2 py-0.5 cat-pill">4</span>
+          </button>
+          <button class="cat-btn flex items-center gap-3 px-5 py-3.5 text-white/55 hover:text-white hover:bg-white/6 font-medium text-[13px] whitespace-nowrap transition-all"
+                  onclick="switchCat('inv-battery',this)">
+            <i class="fas fa-car-battery text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">Inv Battery</span>
+            <span class="ml-auto hidden lg:flex bg-white/10 text-white/60 text-[10px] rounded-full px-2 py-0.5 cat-pill">4</span>
+          </button>
+          <button class="cat-btn flex items-center gap-3 px-5 py-3.5 text-white/55 hover:text-white hover:bg-white/6 font-medium text-[13px] whitespace-nowrap transition-all"
+                  onclick="switchCat('stabilizer',this)">
+            <i class="fas fa-sliders-h text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">Stabilizer</span>
+            <span class="ml-auto hidden lg:flex bg-white/10 text-white/60 text-[10px] rounded-full px-2 py-0.5 cat-pill">2</span>
+          </button>
+          <button class="cat-btn flex items-center gap-3 px-5 py-3.5 text-white/55 hover:text-white hover:bg-white/6 font-medium text-[13px] whitespace-nowrap transition-all"
+                  onclick="switchCat('jumbo',this)">
+            <i class="fas fa-home text-sm w-4 text-center"></i>
+            <span class="hidden sm:inline">Jumbo UPS</span>
+            <span class="ml-auto hidden lg:flex bg-white/10 text-white/60 text-[10px] rounded-full px-2 py-0.5 cat-pill">3</span>
+          </button>
+        </div>
+
+        <!-- Product Area -->
+        <div id="prodArea" class="flex-1 min-h-[540px]">
+
+          <!-- ══ ONLINE UPS ══ -->
+          <div class="prod-panel active" id="panel-online-ups">
+            <!-- Brand tabs -->
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand"
+                      onclick="switchBrand('ups-microtek',this,'panel-online-ups')">
+                <img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="h-5 max-w-[60px] object-contain" loading="lazy"> Microtek
+              </button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap"
+                      onclick="switchBrand('ups-luminous',this,'panel-online-ups')">
+                <img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="h-5 max-w-[60px] object-contain" loading="lazy"> Luminous
+              </button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap"
+                      onclick="switchBrand('ups-nexus',this,'panel-online-ups')">
+                <i class="fas fa-bolt text-accent"></i> Nexus UPS
+              </button>
+            </div>
+
+            <div class="p-5 sm:p-7 flex-1">
+
+              <!-- Microtek UPS -->
+              <div class="brand-prod-panel active" id="ups-microtek">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5">
+                  <div>
+                    <div class="font-display text-xl font-bold text-gray-900">Microtek Online UPS</div>
+                    <div class="text-[12.5px] text-muted mt-1">True online double-conversion · Pure Sine Wave · LCD Display</div>
+                  </div>
+                  <a href="https://wa.me/917838493878?text=I%20need%20all%20Microtek%20Online%20UPS%20prices"
+                     class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all">
+                    <i class="fab fa-whatsapp"></i> Get All Prices
+                  </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <!-- Card -->
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png"
+                         alt="Microtek 1KVA UPS" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x150?text=Microtek+1KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Online UPS 1KVA</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Input 145–290V · Pure Sine Wave · LCD Panel · Server Grade</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Best for Server</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20Online%20UPS%201KVA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png"
+                         alt="Microtek 2KVA UPS" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x150?text=Microtek+2KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Online UPS 2KVA</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Rack/Tower Design · Isolation Transformer · 3 Year Warranty</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">3 Year Warranty</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20Online%20UPS%202KVA" class="float-btn flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png"
+                         alt="Microtek 3KVA UPS" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"
+                         onerror="this.src='https://via.placeholder.com/300x150?text=Microtek+3KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Online UPS 3KVA</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Parallel-ready · Intelligent Battery Mgmt · SNMP Card slot</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Enterprise Grade</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20Online%20UPS%203KVA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <p class="text-[13px] text-muted"><strong class="text-gray-900">500VA to 200KVA range.</strong> Need help choosing the right KVA?</p>
+                  <a href="https://wa.me/917838493878?text=I%20need%20help%20choosing%20a%20Microtek%20Online%20UPS"
+                     class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Free Expert Advice</a>
+                </div>
+              </div>
+
+              <!-- Luminous UPS -->
+              <div class="brand-prod-panel" id="ups-luminous">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5">
+                  <div>
+                    <div class="font-display text-xl font-bold text-gray-900">Luminous Online UPS</div>
+                    <div class="text-[12.5px] text-muted mt-1">Zero transfer time · AVR · Intelligent Battery Management</div>
+                  </div>
+                  <a href="https://wa.me/917838493878?text=I%20need%20all%20Luminous%20Online%20UPS%20prices"
+                     class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all">
+                    <i class="fab fa-whatsapp"></i> Get All Prices
+                  </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous 1KVA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy" onerror="this.src='https://via.placeholder.com/300x150?text=Luminous+1KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Online UPS 1KVA</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Digital Display · AVR · Zero Transfer Time · 2 Year Warranty</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Zero Transfer Time</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20Online%20UPS%201KVA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous 2KVA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy" onerror="this.src='https://via.placeholder.com/300x150?text=Luminous+2KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Online UPS 2KVA</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Intelligent Battery Management · Industrial Grade · EMI Filter</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Industrial Grade</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20Online%20UPS%202KVA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <p class="text-[13px] text-muted"><strong class="text-gray-900">1KVA to 10KVA range.</strong> Free installation included on all Luminous UPS.</p>
+                  <a href="https://wa.me/917838493878?text=I%20need%20help%20choosing%20a%20Luminous%20Online%20UPS" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Free Advice</a>
+                </div>
+              </div>
+
+              <!-- Nexus UPS -->
+              <div class="brand-prod-panel" id="ups-nexus">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5">
+                  <div>
+                    <div class="font-display text-xl font-bold text-gray-900">Nexus Online UPS</div>
+                    <div class="text-[12.5px] text-muted mt-1">Heavy duty · Data centre grade · Parallel-capable</div>
+                  </div>
+                  <a href="https://wa.me/917838493878?text=I%20need%20all%20Nexus%20UPS%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.nexusups.com/wp-content/uploads/2024/02/Nexus_logo.png" alt="Nexus 5KVA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy" onerror="this.src='https://via.placeholder.com/300x150?text=Nexus+5KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Nexus UPS</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Nexus 5KVA Online UPS</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">For datacentre · SMF ready · LCD Console · Heavy Duty</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Heavy Duty</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Nexus%205KVA%20Online%20UPS" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://www.nexusups.com/wp-content/uploads/2024/02/Nexus_logo.png" alt="Nexus 10KVA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy" onerror="this.src='https://via.placeholder.com/300x150?text=Nexus+10KVA+UPS'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Nexus UPS</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Nexus 10KVA Online UPS</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Parallel capable · SNMP Card · Free Installation</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Free Installation</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Nexus%2010KVA%20Online%20UPS" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <p class="text-[13px] text-muted"><strong class="text-gray-900">5KVA to 200KVA range.</strong> Best for datacentres &amp; industrial use.</p>
+                  <a href="https://wa.me/917838493878?text=I%20need%20Nexus%20UPS%20for%20my%20datacentre" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Ask Expert</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ══ SMF BATTERIES ══ -->
+          <div class="prod-panel" id="panel-smf-battery">
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand" onclick="switchBrand('smf-exide',this,'panel-smf-battery')">
+                <img src="https://docs.exideindustries.com/images/logo.png" alt="Exide" class="h-5 max-w-[60px] object-contain" loading="lazy"> Exide
+              </button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap" onclick="switchBrand('smf-amaron',this,'panel-smf-battery')">
+                <i class="fas fa-battery-full text-success"></i> Amaron Quanta
+              </button>
+            </div>
+            <div class="p-5 sm:p-7">
+              <div class="brand-prod-panel active" id="smf-exide">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5">
+                  <div><div class="font-display text-xl font-bold text-gray-900">Exide SMF / VRLA Batteries</div><div class="text-[12.5px] text-muted mt-1">Sealed maintenance-free · 5 year design life · High rate discharge</div></div>
+                  <a href="https://wa.me/917838493878?text=I%20need%20all%20Exide%20SMF%20battery%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://cdn.shopify.com/s/files/1/0581/2581/6487/files/Exide_Battery_600x600.jpg?v=1637159422" alt="Exide 7Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy" onerror="this.src='https://via.placeholder.com/300x150?text=Exide+SMF+7Ah'">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Exide</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">SMF 12V 7Ah</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">VRLA · 5 Year Design Life · Security &amp; Alarm systems</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Security/Alarm</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Exide%20SMF%2012V%207Ah%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://cdn.shopify.com/s/files/1/0581/2581/6487/files/Exide_Battery_600x600.jpg?v=1637159422" alt="Exide 100Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Exide</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">SMF 12V 100Ah</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">High rate discharge · UPS Backup grade · VRLA sealed</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">UPS Backup</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Exide%20SMF%2012V%20100Ah%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://cdn.shopify.com/s/files/1/0581/2581/6487/files/Exide_Battery_600x600.jpg?v=1637159422" alt="Exide 200Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Exide</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">SMF 12V 200Ah</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Long backup · Server rooms · Heavy duty design</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Heavy Duty</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Exide%20SMF%2012V%20200Ah%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <p class="text-[13px] text-muted"><strong class="text-gray-900">7Ah to 200Ah range.</strong> Bulk discounts for server rooms.</p>
+                  <a href="https://wa.me/917838493878?text=I%20need%20Exide%20SMF%20batteries%20bulk" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Bulk Price</a>
+                </div>
+              </div>
+              <div class="brand-prod-panel" id="smf-amaron">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5">
+                  <div><div class="font-display text-xl font-bold text-gray-900">Amaron Quanta Batteries</div><div class="text-[12.5px] text-muted mt-1">Tubular gel tech · Zero maintenance · Telecom grade</div></div>
+                  <a href="https://wa.me/917838493878?text=I%20need%20all%20Amaron%20Quanta%20battery%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://cdn.shopify.com/s/files/1/0581/2581/6487/files/Exide_Battery_600x600.jpg?v=1637159422" alt="Amaron 65Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Amaron Quanta</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Quanta 12V 65Ah</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">SMF · Tubular gel technology · 5 Year Warranty</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">5 Year Warranty</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Amaron%20Quanta%2012V%2065Ah" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all">
+                    <img src="https://cdn.shopify.com/s/files/1/0581/2581/6487/files/Exide_Battery_600x600.jpg?v=1637159422" alt="Amaron 150Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy">
+                    <div class="p-3.5 flex flex-col flex-1">
+                      <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Amaron Quanta</div>
+                      <div class="font-display text-[14px] font-bold text-gray-900 mb-1">Quanta 12V 150Ah</div>
+                      <div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Zero maintenance · Telecom grade · Exchange available</div>
+                      <span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Exchange Available</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Amaron%20Quanta%2012V%20150Ah" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3">
+                  <p class="text-[13px] text-muted"><strong class="text-gray-900">All capacities available.</strong> Old battery exchange with instant cashback.</p>
+                  <a href="https://wa.me/917838493878?text=I%20need%20Amaron%20Quanta%20batteries" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Price</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ INVERTER ══ -->
+          <div class="prod-panel" id="panel-inverter">
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand" onclick="switchBrand('inv-microtek',this,'panel-inverter')"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="h-5 max-w-[60px] object-contain" loading="lazy"> Microtek</button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap" onclick="switchBrand('inv-luminous',this,'panel-inverter')"><img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="h-5 max-w-[60px] object-contain" loading="lazy"> Luminous</button>
+            </div>
+            <div class="p-5 sm:p-7">
+              <div class="brand-prod-panel active" id="inv-microtek">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Microtek Inverters</div><div class="text-[12.5px] text-muted mt-1">Pure Sine Wave · LED display · Dual mode · Home &amp; Office</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Microtek%20Inverter%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 900VA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">Inverter 900VA</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Pure Sine Wave · LED Display · Economical · 2 Year Warranty</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Best Value</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20900VA%20Inverter" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 1450VA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">Inverter 1450VA</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">High Capacity · Dual Mode · Best for Homes · 3 Year Warranty</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Best for Homes</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%201450VA%20Inverter" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">500VA to 5KVA range.</strong> Sine wave &amp; square wave options.</p><a href="https://wa.me/917838493878?text=I%20need%20Microtek%20Inverter%20price" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Price</a></div>
+              </div>
+              <div class="brand-prod-panel" id="inv-luminous">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Luminous Inverters</div><div class="text-[12.5px] text-muted mt-1">i-Charge technology · Smart UPS · AC Compatible</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Luminous%20Inverter%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous Zelio+" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">Zelio+ 1100VA</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">i-Charge Technology · Smart UPS · 3 Year Warranty</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Smart UPS</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20Zelio%2B%201100VA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous Cruze 2KVA" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">Cruze 2KVA</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Digital Inverter · Heavy load support · AC Compatible</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">AC Compatible</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20Cruze%202KVA" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">1KVA to 5KVA range.</strong> Free installation on all Luminous inverters.</p><a href="https://wa.me/917838493878?text=I%20need%20Luminous%20Inverter%20price" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Price</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ INVERTER BATTERY ══ -->
+          <div class="prod-panel" id="panel-inv-battery">
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand" onclick="switchBrand('invb-microtek',this,'panel-inv-battery')"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="h-5 max-w-[60px] object-contain" loading="lazy"> Microtek</button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap" onclick="switchBrand('invb-luminous',this,'panel-inv-battery')"><img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="h-5 max-w-[60px] object-contain" loading="lazy"> Luminous</button>
+            </div>
+            <div class="p-5 sm:p-7">
+              <div class="brand-prod-panel active" id="invb-microtek">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Microtek Inverter Batteries</div><div class="text-[12.5px] text-muted mt-1">Tubular · 60 Months Warranty · Low Maintenance</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Microtek%20Inverter%20Battery%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek TT 150Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">TT 150Ah Tubular</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Tubular design · 60 Months Warranty · Low Maintenance</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">60M Warranty</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20TT%20150Ah%20Tubular%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 200Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">200Ah Tall Tubular</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">High backup · Rugged design · Exchange Offer available</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Exchange Offer</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%20200Ah%20Tall%20Tubular%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">100Ah to 220Ah range.</strong> Old battery exchange — instant cashback.</p><a href="https://wa.me/917838493878?text=I%20want%20to%20exchange%20my%20old%20battery%20for%20Microtek" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Exchange &amp; Upgrade</a></div>
+              </div>
+              <div class="brand-prod-panel" id="invb-luminous">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Luminous Inverter Batteries</div><div class="text-[12.5px] text-muted mt-1">Tall Tubular · 60+ Months Warranty · Solar Compatible</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Luminous%20Inverter%20Battery%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous ILTT 18048" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">ILTT 18048 150Ah</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Tall Tubular · 60+ Months Warranty · Best Seller</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">⭐ Best Seller</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20ILTT%2018048%20150Ah%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous 220Ah" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">220Ah Battery</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Solar/Inverter compatible · Heavy Duty · Long backup</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Solar Compatible</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20220Ah%20Inverter%20Battery" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">100Ah to 220Ah range.</strong> Exchange offer with instant cashback.</p><a href="https://wa.me/917838493878?text=I%20want%20to%20exchange%20my%20old%20battery%20for%20Luminous" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Exchange &amp; Save</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ STABILIZER ══ -->
+          <div class="prod-panel" id="panel-stabilizer">
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand" onclick="switchBrand('stab-microtek',this,'panel-stabilizer')"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="h-5 max-w-[60px] object-contain" loading="lazy"> Microtek</button>
+            </div>
+            <div class="p-5 sm:p-7">
+              <div class="brand-prod-panel active" id="stab-microtek">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Microtek Stabilizers</div><div class="text-[12.5px] text-muted mt-1">Digital · 90–290V wide input range · Home &amp; Industrial</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20stabilizer%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 1KVA Stab" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">1KVA Stabilizer</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Digital · 90–290V wide range · Home/AC usage</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Home/AC</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%201KVA%20Stabilizer" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 5KVA Servo" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">5KVA Servo Stabilizer</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Industrial Servo · For Offices · High load capacity</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">For Office</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%205KVA%20Servo%20Stabilizer" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">1KVA to 500KVA range.</strong> For homes, offices &amp; industrial applications.</p><a href="https://wa.me/917838493878?text=I%20need%20a%20stabilizer" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Quote</a></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ JUMBO HOME UPS ══ -->
+          <div class="prod-panel" id="panel-jumbo">
+            <div class="flex overflow-x-auto border-b border-border bg-white">
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap active-brand" onclick="switchBrand('jmb-microtek',this,'panel-jumbo')"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="h-5 max-w-[60px] object-contain" loading="lazy"> Microtek</button>
+              <button class="brand-tab flex items-center gap-2 px-4 py-3.5 text-[12.5px] font-semibold text-muted border-b-[2.5px] border-transparent -mb-px transition-colors whitespace-nowrap" onclick="switchBrand('jmb-luminous',this,'panel-jumbo')"><img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="h-5 max-w-[60px] object-contain" loading="lazy"> Luminous</button>
+            </div>
+            <div class="p-5 sm:p-7">
+              <div class="brand-prod-panel active" id="jmb-microtek">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Microtek Jumbo Home UPS</div><div class="text-[12.5px] text-muted mt-1">Runs ACs · Refrigerators · Full-home backup · Pure Sine Wave</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Microtek%20Jumbo%20UPS%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 2.5KVA Jumbo" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">2.5KVA Jumbo UPS</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Runs 2 ACs + lights · Pure Sine Wave · Zero Noise</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Runs 2 ACs</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%202.5KVA%20Jumbo%20Home%20UPS" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.microtek.in/images/new-images/home-page/microtek-inverter-banner.png" alt="Microtek 5KVA Home UPS" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Microtek</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">5KVA Home UPS</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Full home automation ready · Zero Noise · Smart LCD</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Full Home Backup</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Microtek%205KVA%20Home%20UPS" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">2KVA to 10KVA range.</strong> Pure sine wave — runs ACs, geysers, full home.</p><a href="https://wa.me/917838493878?text=I%20need%20a%20Jumbo%20Home%20UPS%20for%20my%20home" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Quote</a></div>
+              </div>
+              <div class="brand-prod-panel" id="jmb-luminous">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-5"><div><div class="font-display text-xl font-bold text-gray-900">Luminous Jumbo Home UPS</div><div class="text-[12.5px] text-muted mt-1">Heavy appliances · Digital · High capacity backup</div></div><a href="https://wa.me/917838493878?text=I%20need%20all%20Luminous%20Jumbo%20UPS%20prices" class="inline-flex items-center gap-1.5 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[12px] font-bold px-4 py-2 rounded-lg border border-border transition-all"><i class="fab fa-whatsapp"></i> Get All Prices</a></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div class="border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary-light hover:shadow-md hover:-translate-y-1 transition-all"><img src="https://www.luminousindia.com/static/images/luminous-products/inverter-batteries/ILTT18048.png" alt="Luminous H1000+" class="w-full h-36 object-contain bg-surface p-3 border-b border-border" loading="lazy"><div class="p-3.5 flex flex-col flex-1"><div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1">Luminous</div><div class="font-display text-[14px] font-bold text-gray-900 mb-1">H1000+ 2KVA</div><div class="text-[11.5px] text-muted leading-relaxed mb-2 flex-1">Jumbo capacity · Digital display · Heavy appliances</div><span class="bg-primary/6 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full inline-block mb-3">Heavy Appliances</span><div class="grid grid-cols-2 gap-2"><a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20price%20for%20Luminous%20H1000%2B%202KVA%20Jumbo%20UPS" class="flex items-center justify-center gap-1 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-[11.5px] font-bold py-2 rounded-lg transition-colors"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="tel:+917838493878" class="flex items-center justify-center gap-1 bg-surface-2 hover:bg-primary hover:text-white text-primary text-[11.5px] font-bold py-2 rounded-lg border border-border transition-all"><i class="fas fa-phone"></i> Call</a></div></div></div>
+                </div>
+                <div class="mt-5 bg-gradient-to-r from-surface to-blue-50 border border-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-3"><p class="text-[13px] text-muted"><strong class="text-gray-900">2KVA to 5KVA range.</strong> Best for homes with multiple ACs.</p><a href="https://wa.me/917838493878?text=I%20need%20a%20Luminous%20Jumbo%20UPS" class="inline-flex items-center gap-2 bg-accent text-white text-[12.5px] font-bold px-4 py-2 rounded-lg"><i class="fab fa-whatsapp"></i> Get Quote</a></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  SERVICES
+════════════════════════════ -->
+<section id="services-detail" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3"><i class="fas fa-tools"></i> Services</div>
+    <h2 class="font-display text-3xl sm:text-[32px] font-extrabold tracking-tight mb-2">End-to-end power backup services</h2>
+    <p class="text-[15px] text-muted mb-10">From installation to round-the-clock support — we've got you covered.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Service cards -->
+      <div class="service-card relative bg-white border border-border rounded-[18px] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-primary/8 text-primary mb-4"><i class="fas fa-plug"></i></div>
+        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1.5">Service 01</div>
+        <div class="font-display text-[16px] font-bold text-gray-900 mb-2.5">UPS &amp; Battery Installation</div>
+        <div class="text-[13px] text-muted leading-relaxed">Professional installation by trained technicians at home or office. Same-day installation available when you book before 12 PM.</div>
+        <span class="inline-block mt-3.5 bg-surface-2 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-border">Same-Day Available</span>
+      </div>
+      <div class="service-card relative bg-white border border-border rounded-[18px] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-accent/8 text-accent mb-4"><i class="fas fa-file-contract"></i></div>
+        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1.5">Service 02</div>
+        <div class="font-display text-[16px] font-bold text-gray-900 mb-2.5">AMC Services</div>
+        <div class="text-[13px] text-muted leading-relaxed">Annual Maintenance Contracts with scheduled maintenance, battery health checks, distilled water top-up, and priority breakdown support.</div>
+        <span class="inline-block mt-3.5 bg-surface-2 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-border">Annual Contract</span>
+      </div>
+      <div class="service-card relative bg-white border border-border rounded-[18px] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-yellow-50 text-yellow-700 mb-4"><i class="fas fa-project-diagram"></i></div>
+        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1.5">Service 03</div>
+        <div class="font-display text-[16px] font-bold text-gray-900 mb-2.5">Turnkey Projects</div>
+        <div class="text-[13px] text-muted leading-relaxed">Complete power backup solutions for commercial, industrial, and data centre projects. Load calculation, supply, installation &amp; commissioning.</div>
+        <span class="inline-block mt-3.5 bg-surface-2 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-border">Commercial &amp; Industrial</span>
+      </div>
+      <div class="service-card relative bg-white border border-border rounded-[18px] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-purple-50 text-purple-600 mb-4"><i class="fas fa-wrench"></i></div>
+        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1.5">Service 04</div>
+        <div class="font-display text-[16px] font-bold text-gray-900 mb-2.5">UPS / Inverter Repair</div>
+        <div class="text-[13px] text-muted leading-relaxed">Expert repair for all major brands. PCB issues, charging faults, battery connector problems — at your site or at our service centre.</div>
+        <span class="inline-block mt-3.5 bg-surface-2 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-border">All Major Brands</span>
+      </div>
+      <div class="service-card relative bg-white border border-border rounded-[18px] p-7 hover:shadow-md hover:-translate-y-0.5 transition-all overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-green-50 text-success mb-4"><i class="fas fa-exchange-alt"></i></div>
+        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-1.5">Service 05</div>
+        <div class="font-display text-[16px] font-bold text-gray-900 mb-2.5">Battery Replacement</div>
+        <div class="text-[13px] text-muted leading-relaxed">Quick doorstep battery replacement with old battery exchange. Get instant cashback. All popular capacities in stock for immediate swap.</div>
+        <span class="inline-block mt-3.5 bg-surface-2 text-primary text-[10px] font-bold px-2.5 py-1 rounded-full border border-border">Old Battery Exchange</span>
+      </div>
+      <!-- Dark card -->
+      <div class="relative bg-gradient-to-br from-primary to-[#0D3565] rounded-[18px] p-7 overflow-hidden">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl bg-yellow-400/15 text-accent-2 mb-4"><i class="fas fa-headset"></i></div>
+        <div class="text-[10px] font-bold text-white/40 uppercase tracking-wide mb-1.5">Service 06</div>
+        <div class="font-display text-[16px] font-bold text-white mb-2.5">24×7 Support</div>
+        <div class="text-[13px] text-[#8BAED4] leading-relaxed">Round-the-clock support via WhatsApp and phone. Power emergencies don't wait — neither do we.</div>
+        <a href="https://wa.me/917838493878" class="inline-flex items-center gap-2 mt-4 bg-accent-2 text-primary text-[11px] font-extrabold px-4 py-2 rounded-full"><i class="fab fa-whatsapp"></i> CONTACT NOW</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  WHY US
+════════════════════════════ -->
+<section id="why" class="py-16 sm:py-20 bg-surface">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3"><i class="fas fa-star"></i> Why Choose Us</div>
+    <h2 class="font-display text-3xl sm:text-[32px] font-extrabold tracking-tight mb-2">Delhi NCR's most trusted power backup dealer</h2>
+    <p class="text-[15px] text-muted mb-10">Over a decade of expertise, thousands of satisfied customers.</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-white border border-border rounded-2xl p-6 text-center hover:shadow-md hover:-translate-y-0.5 transition-all">
+        <div class="w-13 h-13 rounded-[14px] bg-primary/8 text-primary flex items-center justify-center text-2xl mx-auto mb-3.5"><i class="fas fa-certificate"></i></div>
+        <div class="font-display text-[15px] font-bold mb-1.5">100% Genuine Products</div>
+        <div class="text-[12.5px] text-muted">Authorised dealer for all major brands with genuine warranty</div>
+      </div>
+      <div class="bg-white border border-border rounded-2xl p-6 text-center hover:shadow-md hover:-translate-y-0.5 transition-all">
+        <div class="w-13 h-13 rounded-[14px] bg-green-50 text-success flex items-center justify-center text-2xl mx-auto mb-3.5"><i class="fas fa-shipping-fast"></i></div>
+        <div class="font-display text-[15px] font-bold mb-1.5">Same-Day Installation</div>
+        <div class="text-[12.5px] text-muted">Book before 12 PM and get same-day service guaranteed</div>
+      </div>
+      <div class="bg-white border border-border rounded-2xl p-6 text-center hover:shadow-md hover:-translate-y-0.5 transition-all">
+        <div class="w-13 h-13 rounded-[14px] bg-yellow-50 text-yellow-700 flex items-center justify-center text-2xl mx-auto mb-3.5"><i class="fas fa-tag"></i></div>
+        <div class="font-display text-[15px] font-bold mb-1.5">Best Price Guarantee</div>
+        <div class="text-[12.5px] text-muted">We match any authorised dealer price — no questions asked</div>
+      </div>
+      <div class="bg-white border border-border rounded-2xl p-6 text-center hover:shadow-md hover:-translate-y-0.5 transition-all">
+        <div class="w-13 h-13 rounded-[14px] bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mx-auto mb-3.5"><i class="fas fa-users"></i></div>
+        <div class="font-display text-[15px] font-bold mb-1.5">10,000+ Happy Customers</div>
+        <div class="text-[12.5px] text-muted">Trusted across Delhi NCR for over 12 years</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  BRANDS MARQUEE
+════════════════════════════ -->
+<section id="brands" class="bg-surface border-y border-border py-8">
+  <div class="text-center text-[11px] text-muted uppercase tracking-widest font-bold mb-5">Our Authorised Brand Partners</div>
+  <div class="marquee-wrap relative overflow-hidden">
+    <div class="marquee-track flex gap-5 animate-marquee w-max">
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://docs.exideindustries.com/images/logo.png" alt="Exide" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://elnova.com/wp-content/uploads/2023/02/cropped-Elnova_Logo-removebg-preview.png" alt="Elnova" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://www.nexusups.com/wp-content/uploads/2024/02/Nexus_logo.png" alt="Nexus UPS" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><img src="https://www.unilineindia.com/wp-content/uploads/2022/03/Logo-High-Res_1w-logo.png" alt="Uniline" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><span class="font-display text-[14px] font-extrabold text-primary">SuKam</span></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0 hover:border-primary-light hover:shadow-md transition-all"><span class="font-display text-[14px] font-extrabold text-accent">Servokon</span></div>
+      <!-- Duplicate for loop -->
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://www.microtek.in/img/logo.svg" alt="Microtek" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://lumprodsta.blob.core.windows.net/prodcontainer/assets/icons/LuminousLogoBlue.webp" alt="Luminous" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://docs.exideindustries.com/images/logo.png" alt="Exide" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://elnova.com/wp-content/uploads/2023/02/cropped-Elnova_Logo-removebg-preview.png" alt="Elnova" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://www.nexusups.com/wp-content/uploads/2024/02/Nexus_logo.png" alt="Nexus UPS" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><img src="https://www.unilineindia.com/wp-content/uploads/2022/03/Logo-High-Res_1w-logo.png" alt="Uniline" class="max-h-[28px] max-w-[100px] object-contain" loading="lazy"></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><span class="font-display text-[14px] font-extrabold text-primary">SuKam</span></div>
+      <div class="brand-chip bg-white border border-border rounded-xl px-7 h-[60px] flex items-center justify-center flex-shrink-0"><span class="font-display text-[14px] font-extrabold text-accent">Servokon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  CTA BANNER
+════════════════════════════ -->
+<div class="cta-banner relative overflow-hidden bg-gradient-to-br from-primary via-[#0D3565] to-primary-light py-16 sm:py-20 px-5 text-center">
+  <h2 class="font-display text-3xl sm:text-[34px] font-extrabold text-white mb-3 relative z-10">Need a quote right now?</h2>
+  <p class="text-[16px] text-[#8BAED4] mb-8 relative z-10">WhatsApp us your requirement — we'll send you the best price in minutes.</p>
+  <div class="flex justify-center gap-4 flex-wrap relative z-10">
+    <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20a%20quote%20for%20UPS%2FInverter%2FBattery"
+       class="inline-flex items-center gap-2 bg-white text-primary font-bold text-sm px-6 py-3.5 rounded-[10px] shadow-[0_4px_18px_rgba(0,0,0,0.2)]">
+      <i class="fab fa-whatsapp text-success text-lg"></i> WhatsApp Now
+    </a>
+    <a href="tel:+917838493878"
+       class="inline-flex items-center gap-2 bg-transparent text-white font-bold text-sm px-6 py-3.5 rounded-[10px] border border-white/25 hover:bg-white/8 transition-all">
+      <i class="fas fa-phone"></i> +91 78384 93878
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════
+  TESTIMONIALS
+════════════════════════════ -->
+<section class="py-16 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3"><i class="fas fa-star"></i> Customer Reviews</div>
+    <h2 class="font-display text-3xl font-extrabold tracking-tight mb-8">What our customers say</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <div class="bg-white border border-border rounded-[18px] p-6 shadow-sm">
+        <div class="text-yellow-400 text-lg tracking-widest mb-3.5">★★★★★</div>
+        <p class="text-[14px] text-gray-900 leading-relaxed mb-4 italic">"Bought a Microtek Online UPS for our office server. They delivered and installed same day. Excellent service, 100% genuine product!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[13px] font-extrabold flex-shrink-0">RK</div>
+          <div><div class="text-[13px] font-bold text-gray-900">Rajesh Kumar</div><div class="text-[11px] text-muted">Rohini, Delhi</div></div>
+        </div>
+      </div>
+      <div class="bg-white border border-border rounded-[18px] p-6 shadow-sm">
+        <div class="text-yellow-400 text-lg tracking-widest mb-3.5">★★★★★</div>
+        <p class="text-[14px] text-gray-900 leading-relaxed mb-4 italic">"Amaron SMF batteries needed replacement. Called MESC in the morning and by afternoon everything was done. Very professional team!"</p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-green-50 text-success flex items-center justify-center text-[13px] font-extrabold flex-shrink-0">PS</div>
+          <div><div class="text-[13px] font-bold text-gray-900">Priya Sharma</div><div class="text-[11px] text-muted">Dwarka, Delhi</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  FAQ
+════════════════════════════ -->
+<section id="faq" class="py-16 sm:py-20 bg-surface">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3"><i class="fas fa-question-circle"></i> FAQ</div>
+    <h2 class="font-display text-3xl font-extrabold tracking-tight mb-8">Common questions</h2>
+    <div class="max-w-[700px] space-y-2.5">
+      <div class="faq-item border border-border rounded-xl overflow-hidden bg-white open">
+        <button class="faq-q w-full bg-transparent border-none px-5 py-[18px] text-left text-[14px] font-bold text-gray-900 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+          Which UPS brand is best for office/server use?
+          <i class="fas fa-chevron-down faq-chevron text-muted text-sm"></i>
+        </button>
+        <div class="faq-a px-5 pb-4 text-[13.5px] text-muted leading-relaxed">For offices and servers, Microtek Online UPS or Nexus UPS are ideal — they offer true online double-conversion with zero transfer time. For home use, Luminous and Microtek are most popular due to their warranty and service network.</div>
+      </div>
+      <div class="faq-item border border-border rounded-xl overflow-hidden bg-white">
+        <button class="faq-q w-full bg-transparent border-none px-5 py-[18px] text-left text-[14px] font-bold text-gray-900 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+          Do you provide installation?
+          <i class="fas fa-chevron-down faq-chevron text-muted text-sm"></i>
+        </button>
+        <div class="faq-a hidden px-5 pb-4 text-[13.5px] text-muted leading-relaxed">Yes — free installation is included on all purchases. Same-day installation is available when you book before 12 PM. Our trained technicians will come to your home or office.</div>
+      </div>
+      <div class="faq-item border border-border rounded-xl overflow-hidden bg-white">
+        <button class="faq-q w-full bg-transparent border-none px-5 py-[18px] text-left text-[14px] font-bold text-gray-900 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+          Do you take old batteries in exchange?
+          <i class="fas fa-chevron-down faq-chevron text-muted text-sm"></i>
+        </button>
+        <div class="faq-a hidden px-5 pb-4 text-[13.5px] text-muted leading-relaxed">Absolutely! We offer instant cashback on old battery exchange. Just WhatsApp us the details of your old battery and we'll give you the best exchange value against a new battery purchase.</div>
+      </div>
+      <div class="faq-item border border-border rounded-xl overflow-hidden bg-white">
+        <button class="faq-q w-full bg-transparent border-none px-5 py-[18px] text-left text-[14px] font-bold text-gray-900 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+          Do you provide GST invoice?
+          <i class="fas fa-chevron-down faq-chevron text-muted text-sm"></i>
+        </button>
+        <div class="faq-a hidden px-5 pb-4 text-[13.5px] text-muted leading-relaxed">Yes, we provide proper GST invoice on every purchase — whether it's a single battery or a bulk UPS order for your business.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  CONTACT
+════════════════════════════ -->
+<section id="contact" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="inline-flex items-center gap-1.5 bg-primary/7 text-primary-light text-[11px] font-bold px-3 py-1.5 rounded-md uppercase tracking-wide mb-3"><i class="fas fa-envelope"></i> Contact Us</div>
+    <h2 class="font-display text-3xl font-extrabold tracking-tight mb-8">Get a free quote today</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- Info -->
+      <div class="space-y-3.5">
+        <div class="flex items-center gap-3.5 bg-white border border-border rounded-2xl p-4 shadow-sm">
+          <div class="w-11 h-11 bg-primary/8 text-primary rounded-xl flex items-center justify-center text-lg flex-shrink-0"><i class="fas fa-phone"></i></div>
+          <div><div class="text-[11px] text-muted font-semibold uppercase tracking-wide">Phone / WhatsApp</div><div class="text-[15px] font-bold text-gray-900">+91 78384 93878</div></div>
+        </div>
+        <div class="flex items-center gap-3.5 bg-white border border-border rounded-2xl p-4 shadow-sm">
+          <div class="w-11 h-11 bg-primary/8 text-primary rounded-xl flex items-center justify-center text-lg flex-shrink-0"><i class="fas fa-envelope"></i></div>
+          <div><div class="text-[11px] text-muted font-semibold uppercase tracking-wide">Email</div><div class="text-[15px] font-bold text-gray-900">sales.mescllp@gmail.com</div></div>
+        </div>
+        <div class="flex items-center gap-3.5 bg-white border border-border rounded-2xl p-4 shadow-sm">
+          <div class="w-11 h-11 bg-primary/8 text-primary rounded-xl flex items-center justify-center text-lg flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="text-[11px] text-muted font-semibold uppercase tracking-wide">Service Area</div><div class="text-[15px] font-bold text-gray-900">Delhi NCR — All Areas</div></div>
+        </div>
+        <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20a%20quote"
+           class="flex items-center justify-center gap-2 bg-accent hover:bg-orange-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl transition-all shadow-[0_4px_16px_rgba(240,90,26,0.25)]">
+          <i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp
+        </a>
+      </div>
+      <!-- Form -->
+      <div class="bg-surface border border-border rounded-2xl p-7">
+        <div class="font-display text-[18px] font-bold text-gray-900 mb-5">Send an Enquiry</div>
+        <form id="enquiry-form">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" name="name" placeholder="Your name" required
+                   class="w-full border border-border rounded-xl px-3.5 py-3 text-[13.5px] text-gray-900 bg-white outline-none focus:border-primary-light transition-colors font-sans">
+            <input type="tel" name="phone" placeholder="Phone number" required
+                   class="w-full border border-border rounded-xl px-3.5 py-3 text-[13.5px] text-gray-900 bg-white outline-none focus:border-primary-light transition-colors font-sans">
+          </div>
+          <select name="requirement" required
+                  class="w-full border border-border rounded-xl px-3.5 py-3 text-[13.5px] text-gray-900 bg-white outline-none focus:border-primary-light transition-colors mb-3 font-sans">
+            <option disabled selected>What do you need?</option>
+            <option>Online UPS</option>
+            <option>Inverter Battery</option>
+            <option>Home Inverter</option>
+            <option>SMF Battery</option>
+            <option>Stabilizer</option>
+            <option>Jumbo Home UPS</option>
+            <option>AMC / Service</option>
+            <option>Other</option>
+          </select>
+          <input type="text" name="area" placeholder="Your area / pincode"
+                 class="w-full border border-border rounded-xl px-3.5 py-3 text-[13.5px] text-gray-900 bg-white outline-none focus:border-primary-light transition-colors mb-3 font-sans">
+          <textarea name="message" placeholder="Any specific requirement?" rows="3"
+                    class="w-full border border-border rounded-xl px-3.5 py-3 text-[13.5px] text-gray-900 bg-white outline-none focus:border-primary-light transition-colors mb-3 font-sans resize-y"></textarea>
+          <button type="submit"
+                  class="w-full bg-accent hover:bg-orange-700 text-white font-bold text-[14px] py-3.5 rounded-xl transition-colors font-sans">
+            Send Enquiry →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════
+  FOOTER
+════════════════════════════ -->
+<footer class="bg-primary pt-12 pb-7">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-9">
+      <div>
+        <div class="flex items-center gap-3.5 mb-3.5">
+          <img src="https://5.imimg.com/data5/SELLER/Logo/2022/2/EQ/FB/DH/145546901/mitali-electro-sales-corporation-llp-logo-90x90.jpeg"
+               alt="MESC LLP" class="h-11 rounded-[10px]" loading="lazy">
+          <div>
+            <div class="font-display text-[15px] font-bold text-white">Mitali Electro Sales Corporation LLP</div>
+            <div class="text-[11px] text-[#5580AA] mt-0.5">Inverter · Battery · UPS — Delhi NCR</div>
+          </div>
+        </div>
+        <p class="text-[12.5px] text-[#5580AA] leading-relaxed">Authorised dealer for Microtek, Luminous, Exide, Amaron, Nexus &amp; more. Serving Delhi NCR for 12+ years.</p>
+      </div>
+      <div>
+        <div class="text-[11px] font-bold text-white/40 uppercase tracking-widest mb-3.5">Products</div>
+        <div class="flex flex-col gap-2">
+          <a href="#products" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Online UPS Systems</a>
+          <a href="#products" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Home Inverters</a>
+          <a href="#products" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">SMF Batteries</a>
+          <a href="#products" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Inverter Batteries</a>
+          <a href="#products" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Voltage Stabilizers</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-[11px] font-bold text-white/40 uppercase tracking-widest mb-3.5">Services</div>
+        <div class="flex flex-col gap-2">
+          <a href="#services-detail" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Installation</a>
+          <a href="#services-detail" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">AMC Services</a>
+          <a href="#services-detail" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">UPS Repair</a>
+          <a href="#services-detail" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Battery Exchange</a>
+          <a href="#services-detail" class="text-[13px] text-[#5580AA] hover:text-white transition-colors">Turnkey Projects</a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-white/8 mb-5">
+    <div class="text-[11.5px] text-[#3A5580] text-center">© 2026 Mitali Electro Sales Corporation LLP. All rights reserved. | Delhi NCR</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════
+  FLOATING BUTTONS
+════════════════════════════ -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+  <a href="https://wa.me/917838493878?text=Hi%2C%20I%20need%20a%20quote%20for%20UPS%2FInverter%2FBattery"
+     class="w-13 h-13 rounded-full bg-[#25D366] flex items-center justify-center text-white text-xl shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:scale-110 transition-transform">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="tel:+917838493878"
+     class="w-13 h-13 rounded-full bg-primary flex items-center justify-center text-white text-xl shadow-[0_4px_16px_rgba(0,0,0,0.2)] hover:scale-110 transition-transform">
+    <i class="fas fa-phone"></i>
+  </a>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+// ── Init Swiper
+const heroSwiper = new Swiper('.hero-swiper', {
+  loop: true,
+  autoplay: { delay: 4000, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  effect: 'fade',
+  fadeEffect: { crossFade: true },
+});
+
+// ── Category switcher
+function switchCat(id, btn) {
+  document.querySelectorAll('.prod-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.classList.remove('active');
+    b.classList.remove('cat-btn-active');
+    b.style.background = '';
+    b.style.color = '';
+    b.style.fontWeight = '';
+    const pill = b.querySelector('.cat-pill');
+    if (pill) { pill.style.background = 'rgba(255,255,255,0.1)'; pill.style.color = 'rgba(255,255,255,0.6)'; }
+  });
+
+  const panel = document.getElementById('panel-' + id);
+  if (panel) panel.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+    btn.style.background = 'rgba(255,255,255,0.10)';
+    btn.style.color = '#fff';
+    btn.style.fontWeight = '700';
+    const pill = btn.querySelector('.cat-pill');
+    if (pill) { pill.style.background = '#F05A1A'; pill.style.color = '#fff'; }
+  }
+
+  // Auto-activate first brand tab
+  const firstBrandTab = panel?.querySelector('.brand-tab');
+  const firstBrandPanel = panel?.querySelector('.brand-prod-panel');
+  panel?.querySelectorAll('.brand-tab').forEach(t => { t.classList.remove('active-brand'); t.style.color = ''; t.style.borderBottomColor = 'transparent'; });
+  panel?.querySelectorAll('.brand-prod-panel').forEach(p => p.classList.remove('active'));
+  if (firstBrandTab) { firstBrandTab.classList.add('active-brand'); firstBrandTab.style.color = '#1A3A6B'; firstBrandTab.style.borderBottomColor = '#F05A1A'; }
+  if (firstBrandPanel) firstBrandPanel.classList.add('active');
+}
+
+// ── Brand tab switcher
+function switchBrand(brandPanelId, btn, catPanelId) {
+  const catPanel = document.getElementById(catPanelId);
+  catPanel?.querySelectorAll('.brand-tab').forEach(t => { t.classList.remove('active-brand'); t.style.color = ''; t.style.borderBottomColor = 'transparent'; });
+  catPanel?.querySelectorAll('.brand-prod-panel').forEach(p => p.classList.remove('active'));
+  if (btn) { btn.classList.add('active-brand'); btn.style.color = '#1A3A6B'; btn.style.borderBottomColor = '#F05A1A'; }
+  const bp = document.getElementById(brandPanelId);
+  if (bp) bp.classList.add('active');
+}
+
+// Init active states on load
+document.addEventListener('DOMContentLoaded', () => {
+  const activeBtn = document.querySelector('.cat-btn.active');
+  if (activeBtn) {
+    activeBtn.style.background = 'rgba(255,255,255,0.10)';
+    activeBtn.style.color = '#fff';
+    activeBtn.style.fontWeight = '700';
+    const pill = activeBtn.querySelector('.cat-pill');
+    if (pill) { pill.style.background = '#F05A1A'; pill.style.color = '#fff'; }
+  }
+  document.querySelectorAll('.brand-tab.active-brand').forEach(t => {
+    t.style.color = '#1A3A6B';
+    t.style.borderBottomColor = '#F05A1A';
+  });
+  // FAQ — show first answer
+  const firstFaq = document.querySelector('.faq-item.open .faq-a');
+  if (firstFaq) firstFaq.classList.remove('hidden');
+});
+
+// ── FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-chevron').style.transform = '';
+    const a = i.querySelector('.faq-a');
+    if (a) a.classList.add('hidden');
+  });
+  if (!wasOpen) {
+    item.classList.add('open');
+    btn.querySelector('.faq-chevron').style.transform = 'rotate(180deg)';
+    if (answer) answer.classList.remove('hidden');
+  }
+}
+
+// ── Enquiry form
+document.getElementById('enquiry-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const data = new FormData(this);
+  const name = data.get('name');
+  const phone = data.get('phone');
+  const req = data.get('requirement');
+  const area = data.get('area') || 'Not specified';
+  const msg = data.get('message') || '';
+  const wa = `https://wa.me/917838493878?text=Hi%2C%20I%20am%20${encodeURIComponent(name)}%20(${encodeURIComponent(phone)}).%20I%20need%20${encodeURIComponent(req)}%20in%20${encodeURIComponent(area)}.%20${encodeURIComponent(msg)}`;
+  window.open(wa, '_blank');
+  this.reset();
+});
+</script>
+</body>
+</html>
